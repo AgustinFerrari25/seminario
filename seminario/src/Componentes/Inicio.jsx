@@ -1,9 +1,15 @@
 import { useState } from "react";
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBook} from "@fortawesome/free-solid-svg-icons"
 import '../Estilos/EstilosInicio.css'
 import carpinchoLogo from '../img/carpincho-moneda.png';
-const inicio=()=>{
-    
+import { useNavigate} from "react-router-dom";
+import frameIcon from '../img/Frame.svg';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+
+const Inicio=()=>{
+    const navigate = useNavigate();
     return(
   
       <div className="home-container">
@@ -12,12 +18,12 @@ const inicio=()=>{
         <h1>El Carpincho de Wall Street</h1>
       </div>
       <div className="button-container">
-        <button className="btn">Modo Aprendizaje</button>
-        <button className="btn">Modo Libre Mercado</button>
-        <button className="btn">Biblioteca</button>
+        <button  onClick={() => navigate('/aprendizaje')} className="btn"> <FontAwesomeIcon icon={faGraduationCap}/>  Modo Aprendizaje </button>
+        <button className="btn"> <img src={frameIcon} alt="Mi icono" /> Modo Libre Mercado</button>
+        <button className="btn"> <FontAwesomeIcon icon={faBook} /> Biblioteca</button>
       </div>
    </div>) 
 
 }
 
-export default inicio;
+export default Inicio;

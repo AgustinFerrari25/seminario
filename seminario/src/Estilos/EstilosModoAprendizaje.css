@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+  }
+  
+  /* Estilos para la página de modo aprendizaje */
+  .learning-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    background-image: url('../img/fondo.svg'); /* Ajusta la ruta según la estructura del proyecto */
+    background-size: cover;
+    padding: 20px;
+  }
+  
+ 
+  
+  
+  
+
+  
+  .difficulty-selection {
+    text-align: center;
+  }
+  
+  .difficulty-selection h2 {
+    font-size: 2rem;
+    font-weight: bold; 
+    color: black; 
+    margin-bottom: 20px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .difficulty-btn {
+    background-color: #ffb800;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .difficulty-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Diferentes colores para cada nivel de dificultad */
+  .beginner {
+    background-color: #ff9999; /* Principiante */
+  }
+  
+  .intermediate {
+    background-color: #ffcc00; /* Intermedio */
+  }
+  
+  .expert {
+    background-color: #ff6600; /* Experto */
+  }
+  
+  .back-btn {
+    margin-top: 30px;
+    background-color: #ffb800;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #e0a800;
+  }
+  .box-container {
+    display: flex; /* Align items side by side */
+    background-color: #ffb800; 
+    padding: 20px 30px; 
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 600px; 
+    text-align: left;
+    justify-content: space-between; /* Adjusts space between elements */
+    align-items: center; /* Aligns vertically */
+}
+
+.TituloModo {
+    font-size: 28px; 
+    font-weight: bold; 
+    color: black; 
+    margin-right: 20px; /* Adds spacing between title and text */
+    white-space: nowrap; /* Prevents title from breaking into two lines */
+}
+
+.TextoModo {
+    font-size: 16px; 
+    color: black; 
+    flex: 1; /* Allows the text to take the remaining space */
+}
+.beginner {
+    background-color: #ffb800; /* Color de fondo de los botones */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .beginner-hover:hover::after {
+    content: "Personas que dan sus primeros pasos en el mundo de las inversiones"; /* Texto de hover */
+    position: absolute;
+    top: -40px; /* Ajusta la posición para que el texto esté encima del botón */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .btn_principiante{
+    position: relative;
+    background-color: #ffb800; /* Color de fondo de los botones */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  }
+  .btn_principiante:hover {
+    background-color: #573523; /* Color al pasar el cursor */
+}
+
+.btn_principiante:after {
+    content: "Personas que dan sus primeros pasos en el mundo de las inversiones";
+    position: absolute;
+    top: 40px; /* Ajusta la posición  */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #437c90;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease; /* Añadir transición */
+}
+
+.btn_principiante:hover:after {
+    opacity: 1; /* Mostrar el texto al hacer hover */
+}
+  
+  
