@@ -15,10 +15,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f9f9f9;
-    border: 10px solid #ff00ff; /* Borde rosa que se ve en la imagen */
+    background-color: #f9f9f9; 
     padding: 20px;
-    background-image: url('C:\Users\Usuario\Desktop\API\Codigo\seminario\seminario\src\img\fondo.svg'); /* Asegúrate de poner el fondo repetido aquí */
+    background-image: url('/img/fondo.svg');  
     background-size: contain;
   }
   
@@ -46,7 +45,7 @@
   }
   
   .btn {
-    background-color: #ffb800; /* Color de fondo de los botones */
+    background-color: #ffb800; 
     border: none;
     border-radius: 8px;
     padding: 15px 30px;
@@ -59,6 +58,6 @@
   }
   
   .btn:hover {
-    background-color: #573523; /* Color al pasar el cursor */
+    background-color: #573523; 
     
   }
