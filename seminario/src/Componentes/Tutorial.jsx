@@ -158,34 +158,82 @@ const Tutorial = () => {
             
             {/* Play Area */}
             <div className="play-area">
-                {isContentLowered && <div className="future-content-space"></div>}
-                
-                <div className={`tutorial-content ${isContentLowered ? 'lowered' : ''}`}>
-                    <div className="tutorial-box">
-                        <h2 className="poppins-black">El carpincho de Wall Street</h2>
-                        <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
+
+                {isContentLowered ? (
+                    
+                    <> {/* Contenido cuando el diálogo del tutorial está abajo */}
+                    
+                    <div style={{border: '1px solid #000', width: '80%', height: '80%'}}>
+                        <p>Contenido de la leccion.</p>
                     </div>
-                    <img 
-                        src={carpinchoCharacter} 
-                        alt="Carpincho character" 
-                        className="character-image" 
-                    />
-                </div>
-                
-                <div className="navigation-buttons poppins-black">
-                    <button 
-                        onClick={handlePrevious} 
-                        disabled={currentStep === 0}
-                    >
-                        <FontAwesomeIcon icon={faChevronLeft} /> Anterior
-                    </button>
-                    <button 
-                        onClick={handleNext} 
-                        disabled={currentStep === tutorialSteps.length - 1}
-                    >
-                        Siguiente <FontAwesomeIcon icon={faChevronRight} />
-                    </button>
-                </div>
+
+                    <div className="tutorial-content-small">
+                            
+                        {/* Botón Previous */}
+                        <button 
+                            onClick={handlePrevious} 
+                            disabled={currentStep === 0}
+                        >
+                            <FontAwesomeIcon icon={faChevronLeft} />
+                        </button>
+
+                        {/* Cuadro de diálogo y foto de carpincho */}
+                            <div className="tutorial-box-small">
+                                <h2 className="poppins-black">El carpincho de Wall Street</h2>
+                                <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
+                            </div>
+                            <img 
+                                src={carpinchoCharacter} 
+                                alt="Carpincho character" 
+                                className="character-image-small" 
+                            />
+
+                        {/* Botón Next */}
+                        <button 
+                            onClick={handleNext} 
+                            disabled={currentStep === tutorialSteps.length - 1}
+                        >
+                            <FontAwesomeIcon icon={faChevronRight} />
+                        </button>
+
+                    </div>
+                    
+                    </>
+                 
+                    ) : (
+
+                    <> {/* Contenido cuando el diálogo del tutorial está abajo */}
+
+                        <div className="tutorial-content-big">
+                            <div className="tutorial-box-big">
+                                <h2 className="poppins-black">El carpincho de Wall Street</h2>
+                                <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
+                            </div>
+                            <img 
+                                src={carpinchoCharacter} 
+                                alt="Carpincho character" 
+                                className="character-image-big" 
+                            />
+                        
+                        </div>
+                        
+                        
+                        <div className="navigation-buttons poppins-black">
+                            <button 
+                                onClick={handlePrevious} 
+                                disabled={currentStep === 0}
+                            >
+                                <FontAwesomeIcon icon={faChevronLeft} /> Anterior
+                            </button>
+                            <button 
+                                onClick={handleNext} 
+                                disabled={currentStep === tutorialSteps.length - 1}
+                            >
+                                Siguiente <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
+                        </div>
+                    </>
+                )}
             </div>
         </>
     );
