@@ -4,7 +4,7 @@ import '../Estilos/EstilosTutorial.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import carpinchoLogo from '../img/carpincho-moneda.png';
-import carpinchoCharacter from '../img/carpincho-traje.jpeg'; 
+import carpinchoCharacter from '../img/carpincho-traje.jpeg';
 
 const Tutorial = () => {
     const navigate = useNavigate();
@@ -117,7 +117,6 @@ const Tutorial = () => {
     const handleNext = () => {
         if (currentStep < tutorialSteps.length - 1) {
             setCurrentStep(currentStep + 1);
-            // Cambia el estado para bajar el contenido después del paso 9
             if (currentStep === 9) {
                 setIsContentLowered(true);
             }
@@ -127,7 +126,6 @@ const Tutorial = () => {
     const handlePrevious = () => {
         if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
-            // Vuelve a subir el contenido si retrocedemos antes del paso 10
             if (currentStep === 10) {
                 setIsContentLowered(false);
             }
@@ -137,10 +135,24 @@ const Tutorial = () => {
     return (
         <>
             <header className="headerTuto">
-                <img onClick={() => navigate("/")} src={carpinchoLogo} alt="Carpincho de Wall Street" className="logoMenu" />
+                <img 
+                    onClick={() => navigate("/")} 
+                    src={carpinchoLogo} 
+                    alt="Carpincho de Wall Street" 
+                    className="logoMenu" 
+                />
                 <p><FontAwesomeIcon icon={faGraduationCap} /> Modo aprendizaje</p>
-                <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} className="back-icon" />
-                <FontAwesomeIcon icon={faGear} className="settings-icon" />
+                <div className="header-icons">
+                    <FontAwesomeIcon 
+                        icon={faArrowLeft} 
+                        onClick={() => navigate(-1)} 
+                        className="back-icon" 
+                    />
+                    <FontAwesomeIcon 
+                        icon={faGear} 
+                        className="settings-icon" 
+                    />
+                </div>
             </header>
             
             {isContentLowered && <div className="future-content-space"></div>}
@@ -150,19 +162,29 @@ const Tutorial = () => {
                     <h2>El carpincho de Wall Street</h2>
                     <p>{tutorialSteps[currentStep].text}</p>
                 </div>
-                <img src={carpinchoCharacter} alt="Carpincho character" className="character-image" />
+                <img 
+                    src={carpinchoCharacter} 
+                    alt="Carpincho character" 
+                    className="character-image" 
+                />
             </div>
             
             <div className="navigation-buttons">
-                <button onClick={handlePrevious} disabled={currentStep === 0}>
+                <button 
+                    onClick={handlePrevious} 
+                    disabled={currentStep === 0}
+                >
                     <FontAwesomeIcon icon={faChevronLeft} /> Anterior
                 </button>
-                <button onClick={handleNext} disabled={currentStep === tutorialSteps.length - 1}>
+                <button 
+                    onClick={handleNext} 
+                    disabled={currentStep === tutorialSteps.length - 1}
+                >
                     Siguiente <FontAwesomeIcon icon={faChevronRight} />
                 </button>
             </div>
         </>
-    )
+    );
 }
 
 export default Tutorial;

@@ -1,63 +1,107 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
-  }
-  
-  .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f9f9f9; 
-    padding: 20px;
-    background-image: url('/img/fondo.svg');  
-    background-size: contain;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .logo {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .btn {
-    background-color: #ffb800; 
-    border: none;
-    border-radius: 8px;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .btn:hover {
-    background-color: #573523; 
-    
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+  background-image: url('/img/fondo.svg');  
+  background-size: contain;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  background-color: #ffb800; 
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  width: 200px;
+}
+
+.btn:hover {
+  background-color: #573523; 
+}
+
+.btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.btn-text {
+  text-align: center;
+}
+
+.frame-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-icon .fa-graduation-cap,
+.btn-icon .fa-book {
+  font-size: 24px;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.TituloModo {
+  margin: 15px 0;
+}
+
+.TextoModo {
+  max-width: 600px;
+  line-height: 1.5;
+}
