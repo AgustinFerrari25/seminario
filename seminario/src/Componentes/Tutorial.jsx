@@ -134,6 +134,7 @@ const Tutorial = () => {
 
     return (
         <>
+            {/* Header */}
             <header className="headerTuto">
                 <img 
                     onClick={() => navigate("/")} 
@@ -155,33 +156,36 @@ const Tutorial = () => {
                 </div>
             </header>
             
-            {isContentLowered && <div className="future-content-space"></div>}
-            
-            <div className={`tutorial-content ${isContentLowered ? 'lowered' : ''}`}>
-                <div className="tutorial-box">
-                    <h2>El carpincho de Wall Street</h2>
-                    <p>{tutorialSteps[currentStep].text}</p>
+            {/* Play Area */}
+            <div className="play-area">
+                {isContentLowered && <div className="future-content-space"></div>}
+                
+                <div className={`tutorial-content ${isContentLowered ? 'lowered' : ''}`}>
+                    <div className="tutorial-box">
+                        <h2 className="poppins-black">El carpincho de Wall Street</h2>
+                        <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
+                    </div>
+                    <img 
+                        src={carpinchoCharacter} 
+                        alt="Carpincho character" 
+                        className="character-image" 
+                    />
                 </div>
-                <img 
-                    src={carpinchoCharacter} 
-                    alt="Carpincho character" 
-                    className="character-image" 
-                />
-            </div>
-            
-            <div className="navigation-buttons">
-                <button 
-                    onClick={handlePrevious} 
-                    disabled={currentStep === 0}
-                >
-                    <FontAwesomeIcon icon={faChevronLeft} /> Anterior
-                </button>
-                <button 
-                    onClick={handleNext} 
-                    disabled={currentStep === tutorialSteps.length - 1}
-                >
-                    Siguiente <FontAwesomeIcon icon={faChevronRight} />
-                </button>
+                
+                <div className="navigation-buttons poppins-black">
+                    <button 
+                        onClick={handlePrevious} 
+                        disabled={currentStep === 0}
+                    >
+                        <FontAwesomeIcon icon={faChevronLeft} /> Anterior
+                    </button>
+                    <button 
+                        onClick={handleNext} 
+                        disabled={currentStep === tutorialSteps.length - 1}
+                    >
+                        Siguiente <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+                </div>
             </div>
         </>
     );
