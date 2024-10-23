@@ -44,73 +44,71 @@ const Tutorial = () => {
         },
         {
             text: (<>Comencemos haciendo tu primera inversión para terminar de entender estos conceptos.</>),
-            showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
         },
         {
             text: (<>Esta es la pantalla principal de nuestro broker. Tiene información clave sobre el <strong>estado de tu cuenta</strong>.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-01.png",
         },
         {
             text: (<>De momento se ve un poco vacía, pero va a ir completándose a medida que aprendamos más.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-02.png",
         },
         {
             text: (<>Esto significa cada uno de los números que ves en pantalla.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-03.png",
         },
         {
             text: (<>Vamos a hacer nuestra primera inversión entrando a la opción destacada en la barra superior.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-04.png",
         },
         {
             text: (<>Esta pantalla nos permite elegir entre las distintas opciones que tenemos para invertir.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-05.png",
         },
         {
             text: (<>Seleccionando una, podemos acceder a detalles sobre ella. Seleccionemos “Plazo Fijo”.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-06.png",
         },
         {
             text: (<>En este caso, tenemos una descripción del tipo de activo. En otras lecciones tendremos descripciones más detalladas sobre el activo en sí, pero no nos adelantemos.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-07.png",
         },
         {
             text: (<>Esta tabla, que cambia dependiendo del tipo de activo, muestra la cotización actual, y nos indica si se modificó respecto de la última cotización. Esto va a tener más sentido luego.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-08.png",
         },
         {
             text: (<>Este gráfico muestra la evolución de la cotización del activo a lo largo del tiempo. Es útil para poder tener una idea general de cómo se comporta. Es muy útil para activos <strong>volátiles</strong>.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-09.png",
         },
         {
             text: (<>Esta tabla nos muestra nuestras <strong>tenencias</strong>, es decir, cuánto tenemos invertido en este <strong>activo</strong>. Nos muestra cuántas unidades tenemos, si aplica, y su <strong>cotización</strong> actual.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-10.png",
         },
         {
             text: (<>En este apartado tenemos características generales del <strong>activo</strong>, que nos pueden ayudar a decidir si nos conviene invertir.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-11.png",
         },
         {
             text: (<>Finalmente, tenemos los botones de compra y venta del activo. Para <strong>plazo fijo</strong> en particular, no aplica la venta y por eso lo vemos oscurecido.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-12.png",
         },
         {
             text: (<>Hagamos clic en <strong>Comprar</strong> para hacer nuestra primera inversión.</>),
             showImage: true,
-            image: "/path/to/your/first/tutorial/image.jpg",
+            image: "../img/tutorial/tutorial-13.png",
         },
     ];
 
@@ -163,8 +161,10 @@ const Tutorial = () => {
                     
                     <> {/* Contenido cuando el diálogo del tutorial está abajo */}
                     
-                    <div style={{border: '1px solid #000', width: '80%', height: '80%'}}>
-                        <p>Contenido de la leccion.</p>
+                    <div style={{width: '80%', height: '80%'}}>
+                        {tutorialSteps[currentStep].showImage && tutorialSteps[currentStep].image && (
+                            <img src={tutorialSteps[currentStep].image} alt="Tutorial Step" />
+                        )}
                     </div>
 
                     <div className="tutorial-content-small">

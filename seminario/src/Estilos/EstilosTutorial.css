@@ -4,7 +4,7 @@ body {
     min-height: 100vh;
     background-color: #f9f9f9;
     background-image: url('/img/fondo.svg');  
-    background-size: contain;
+    background-size: 128px 128px;
 }
 
 .headerTuto {
@@ -178,7 +178,6 @@ body {
         padding: 20px;
         transition: margin-top 0.5s ease;
         width: 80%;
-        border: 1px solid red;
     }
 
     .tutorial-box-small {
