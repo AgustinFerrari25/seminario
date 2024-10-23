@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../Estilos/EstilosTutorial.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight , faDollarSign , faMoneyBill} from "@fortawesome/free-solid-svg-icons"
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
+
 
 const Tutorial = () => {
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
     const [isContentLowered, setIsContentLowered] = useState(false);
+    const [showOperar, setShowOperar] = useState(false);
+    const [showValor, setShowValor] = useState(false);
 
     const tutorialSteps = [
         {
@@ -118,6 +121,14 @@ const Tutorial = () => {
             if (currentStep === 9) {
                 setIsContentLowered(true);
             }
+
+            if (currentStep >= 13) {
+                setShowOperar(true);
+            }
+
+            if (currentStep >= 14) {
+                setShowValor(true);
+            }
         }
     };
 
@@ -128,7 +139,15 @@ const Tutorial = () => {
                 setIsContentLowered(false);
             }
         }
+        if (currentStep < 15) {
+            setShowOperar(false);
+        }
+        if (currentStep < 16) {
+            setShowValor(false);
+        }
     };
+
+
 
     return (
         <>
@@ -140,7 +159,11 @@ const Tutorial = () => {
                     alt="Carpincho de Wall Street" 
                     className="logoMenu" 
                 />
+                
                 <p><FontAwesomeIcon icon={faGraduationCap} /> Modo aprendizaje</p>
+                {showOperar && <p><FontAwesomeIcon icon={faMoneyBill} /></p>}
+                {showValor && <p><FontAwesomeIcon icon={faDollarSign} /><strong>1000,00</strong></p>}
+
                 <div className="header-icons">
                     <FontAwesomeIcon 
                         icon={faArrowLeft} 
