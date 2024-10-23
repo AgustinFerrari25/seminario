@@ -26,6 +26,8 @@ body {
     align-items: center;
 }
 
+
+
 .back-icon, .settings-icon {
     font-size: 1.5rem;
     cursor: pointer;
@@ -35,6 +37,14 @@ body {
     font-weight: bold;
     margin-right: auto;
     margin-left: 40px;
+}
+
+.headerTuto div {
+    display: flex;
+    font-weight: bold;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
 }
 
 .play-area {

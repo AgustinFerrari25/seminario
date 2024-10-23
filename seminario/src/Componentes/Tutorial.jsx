@@ -153,6 +153,8 @@ const Tutorial = () => {
         <>
             {/* Header */}
             <header className="headerTuto">
+                <div>
+                
                 <img 
                     onClick={() => navigate("/")} 
                     src={carpinchoLogo} 
@@ -162,6 +164,9 @@ const Tutorial = () => {
                 
                 <p><FontAwesomeIcon icon={faGraduationCap} /> Modo aprendizaje</p>
                 {showOperar && <p><FontAwesomeIcon icon={faMoneyBill} /></p>}
+                </div>
+
+                <div>
                 {showValor && <p><FontAwesomeIcon icon={faDollarSign} /><strong>1000,00</strong></p>}
 
                 <div className="header-icons">
@@ -174,6 +179,7 @@ const Tutorial = () => {
                         icon={faGear} 
                         className="settings-icon" 
                     />
+                </div>
                 </div>
             </header>
             
