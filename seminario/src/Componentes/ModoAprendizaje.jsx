@@ -27,15 +27,19 @@ const ModoAprendizaje = () => {
       <div className="difficulty-selection">
         <h2>Seleccioná tu dificultad</h2>
         <div className="buttons-container">
+
           <button onClick={() => navigate("/tutorial")} className="difficulty-btn btn_principiante">
             <FontAwesomeIcon icon={faHeart} /> Principiante
           </button>
-          <button className="difficulty-btn btn_intermedio">
+
+          <button onClick={() => navigate("/intermedio")} className="difficulty-btn btn_intermedio">
             <FontAwesomeIcon icon={faScaleBalanced} /> Intermedio
           </button>
+
           <button className="difficulty-btn btn_experto">
             <FontAwesomeIcon icon={faRobot} /> Experto
           </button>
+
         </div>
       </div>
 

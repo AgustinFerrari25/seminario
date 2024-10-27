@@ -14,7 +14,7 @@ const Inicio=()=>{
       <div className="home-container">
         <div className="header">
           <img src={carpinchoLogo} alt="Carpincho de Wall Street" className="logo" />
-          <h1>El Carpincho de Wall Street</h1>
+          <h1 className="title-text">El Carpincho de Wall Street</h1>
         </div>
         <div className="button-container">
           <button onClick={() => navigate('/aprendizaje')} className="btn">

@@ -56,8 +56,6 @@ body {
     align-items: center;
 }
 
-/* Contenido de tutorial grande */
-
     .tutorial-content-big {
         display: flex;
         justify-content: center;
@@ -88,8 +86,6 @@ body {
         align-items: flex-start;
         position:relative;
     }
-
-    /* Triangulito para que se note que está hablando el carpincho */
 
     .tutorial-box-big::before {
         content: "";
