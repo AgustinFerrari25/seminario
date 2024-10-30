@@ -18,7 +18,7 @@ body {
   background-color: #f9f9f9;
   padding: 20px;
   background-image: url('/img/fondo.svg');  
-  background-size: contain;
+  background-size: 128px 128px;
 }
 
 .header {
@@ -63,9 +63,38 @@ h1 {
   width: 200px;
 }
 
+
+
 .btn:hover {
   background-color: #573523; 
 }
+
+.btn-disabled {
+  background-color: #ffb800; 
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  width: 200px;
+}
+
+.btn-disabled:hover {
+  background-color: #573523; 
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
 
 .btn-icon {
   display: flex;
@@ -104,4 +133,11 @@ h1 {
 .TextoModo {
   max-width: 600px;
   line-height: 1.5;
+}
+
+.oxanium-Modo {
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
 }

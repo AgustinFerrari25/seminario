@@ -32,9 +32,10 @@ body {
 }
 
 .headerTuto p {
-    font-weight: bold;
-    margin-right: auto;
-    margin-left: 40px;
+    font-family: "Oxanium", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .headerTuto div {
@@ -360,7 +361,18 @@ body {
     font-weight: 900;
     font-style: italic;
 }
+.oxanium-text {
+font-size: 20px; 
+color: black; 
+justify-content: center;
+padding: 20px; 
+white-space: nowrap;
+font-family: "Oxanium", sans-serif;
+font-optical-sizing: auto;
+font-weight: 600;
+font-style: normal;
 
+}
 .pixel-font {
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;

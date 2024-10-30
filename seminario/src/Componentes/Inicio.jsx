@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBook} from "@fortawesome/free-solid-svg-icons"
@@ -21,19 +21,19 @@ const Inicio=()=>{
             <span className="btn-icon">
               <FontAwesomeIcon icon={faGraduationCap}/>
             </span>
-            <span className="btn-text">Modo Aprendizaje</span>
+            <span className="btn-text oxanium-Modo">Modo Aprendizaje</span>
           </button>
-          <button className="btn">
+          <button className="btn-disabled">
             <span className="btn-icon">
               <img src={frameIcon} alt="Mi icono" className="frame-icon"/>
             </span>
-            <span className="btn-text">Modo Libre Mercado</span>
+            <span className="btn-text oxanium-Modo">Modo Libre Mercado</span>
           </button>
-          <button className="btn">
+          <button className="btn-disabled">
             <span className="btn-icon">
               <FontAwesomeIcon icon={faBook} />
             </span>
-            <span className="btn-text">Biblioteca</span>
+            <span className="btn-text oxanium-Modo">Biblioteca</span>
           </button>
         </div>
       </div>

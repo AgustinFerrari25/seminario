@@ -9,6 +9,12 @@ body {
   background-color: #fff;
 }
 
+.title-text {
+  font-family: "Black Ops One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .learning-container {
   display: flex;
   flex-direction: column;
@@ -18,7 +24,7 @@ body {
   background-color: #f9f9f9;
   padding: 20px;
   background-image: url('/img/fondo.svg');  
-  background-size: contain;
+  background-size: 128px 128px;
 }
 
 .difficulty-selection {
@@ -26,10 +32,15 @@ body {
 }
 
 .difficulty-selection h2 {
-  font-size: 2rem;
-  font-weight: bold; 
+  font-size: 20px; 
   color: black; 
-  margin-bottom: 20px;
+  justify-content: center;
+  padding: 20px; 
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .buttons-container {
@@ -56,16 +67,24 @@ body {
 }
 
 .back-btn {
-  margin-top: 30px;
-  background-color: #ffb800;
+  color: black; 
+  justify-self: center;
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: italic;
+  position: relative;
+  background-color: #ffb800; 
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
+  padding: 15px 30px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 .back-btn:hover {
@@ -85,35 +104,52 @@ body {
 }
 
 .TituloModo {
-  font-size: 28px; 
-  font-weight: bold; 
+  font-size: 25px; 
   color: black; 
   margin-right: 20px; 
-  white-space: nowrap; 
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .TextoModo {
   font-size: 16px; 
   color: black; 
+  margin-right: 20px; 
+  white-space: wrap;
+  
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: none;
+  color: black; 
   flex: 1; 
 }
 
 .btn_principiante {
+ 
+  color: black; 
+  justify-content: center;
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   position: relative;
   background-color: #ffb800; 
   border: none;
   border-radius: 8px;
   padding: 15px 30px;
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn_principiante:hover {
-  background-color: #573523; 
+  background-color: #d4a900; 
 }
 
 .btn_principiante:after {
@@ -138,14 +174,19 @@ body {
 }
 
 .btn_intermedio {
+  color: black; 
+  justify-content: center;
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   position: relative;
-  background-color: #ffcc00;
+  background-color: #ffb800; 
   border: none;
   border-radius: 8px;
   padding: 15px 30px;
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -177,14 +218,19 @@ body {
 }
 
 .btn_experto {
+  color: black; 
+  justify-content: center;
+  white-space: nowrap;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   position: relative;
-  background-color: #ff6600;
+  background-color: #ffb800; 
   border: none;
   border-radius: 8px;
   padding: 15px 30px;
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

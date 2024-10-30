@@ -160,7 +160,7 @@ const Intermedio = () => {
 
                             <div className="tutorial-box-small">
                                 <h2 className="poppins-black">El carpincho de Wall Street</h2>
-                                <p className="poppins-light">{allSteps[currentStep].text}</p>
+                                <p className="oxanium-text">{allSteps[currentStep].text}</p>
                             </div>
                             <img 
                                 src={carpinchoCharacter} 
