@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
+import MenuActivos from "./MenuActivos";
 
 const Intermedio = () => {
     const navigate = useNavigate();
@@ -106,6 +107,7 @@ const Intermedio = () => {
         if (knowsTopic) {
             setSkipTheory(true);
             setCurrentStep(0); // Irá directo a los pasos prácticos
+            
         } else {
             setCurrentStep(currentStep + 1); // Continuará con la teoría
         }

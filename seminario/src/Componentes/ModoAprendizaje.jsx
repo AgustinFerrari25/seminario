@@ -36,7 +36,7 @@ const ModoAprendizaje = () => {
             <FontAwesomeIcon icon={faScaleBalanced} /> Intermedio
           </button>
 
-          <button className="difficulty-btn btn_experto">
+          <button  onClick={()=> navigate("/Experto")}className="difficulty-btn btn_experto">
             <FontAwesomeIcon icon={faRobot} /> Experto
           </button>
 
