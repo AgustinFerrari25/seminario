@@ -16,21 +16,21 @@ public class Account {
         return accountBalance;
     }
 
+    // Nuevo método para establecer un nuevo balance
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
     public Map<String, Double> getPortfolio(){
         return portfolio;
     }
 
     public double addAsset(String assetId, double quantity){
-            if (quantity <= 0) {
-                throw new IllegalArgumentException("La cantidad debe ser mayor a cero.");
-            }
-    
-            if (portfolio.containsKey(assetId)) {
-                double currentQuantity = portfolio.get(assetId);
-                portfolio.put(assetId, currentQuantity + quantity);
-            } else {
-                portfolio.put(assetId, quantity);
-            }
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("La cantidad debe ser mayor a cero.");
+        }
+
+        portfolio.put(assetId, portfolio.getOrDefault(assetId, 0.0) + quantity);
         return accountBalance;
     }
 
@@ -39,25 +39,12 @@ public class Account {
             throw new IllegalArgumentException("La cantidad debe ser mayor a cero.");
         }
 
-        if (portfolio.containsKey(assetId)) {
-            double currentQuantity = portfolio.get(assetId);
-            if (quantity > currentQuantity){
-                throw new IllegalArgumentException("La cantidad vendida supera la cantidad tenida.");
-            } else {
-                portfolio.put(assetId, currentQuantity - quantity);
-            }
-        } else {
-            throw new IllegalArgumentException("El activo propuesto no existe en el portfolio,");
+        double currentQuantity = portfolio.getOrDefault(assetId, 0.0);
+        if (quantity > currentQuantity){
+            throw new IllegalArgumentException("La cantidad vendida supera la cantidad tenida.");
         }
-    return accountBalance;
-}
 
-    // Borrar este método, sólo para debug
-    public void displayPortfolio() {
-        System.out.println("Portfolio:");
-        for (Map.Entry<String, Double> entry : portfolio.entrySet()) {
-            System.out.println("Asset ID: " + entry.getKey() + ", Amount: " + entry.getValue());
-        }
+        portfolio.put(assetId, currentQuantity - quantity);
+        return accountBalance;
     }
-    
 }

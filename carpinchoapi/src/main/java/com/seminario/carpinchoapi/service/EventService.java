@@ -9,7 +9,7 @@ import com.seminario.carpinchoapi.repository.EventRepository;;
 
 @Service
 public class EventService {
-    private final EventRepository eventRepository;
+    private EventRepository eventRepository;
 
     public List<Event> getCurrentEvents() {
         return eventRepository.findAll();

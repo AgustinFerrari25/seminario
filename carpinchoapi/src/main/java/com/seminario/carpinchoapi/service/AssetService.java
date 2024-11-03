@@ -1,5 +1,6 @@
 package com.seminario.carpinchoapi.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seminario.carpinchoapi.repository.AssetRepository;
@@ -10,7 +11,8 @@ import java.util.LinkedList;
 
 @Service
 public class AssetService {
-    private final AssetRepository assetRepository;
+    @Autowired
+    private AssetRepository assetRepository;
 
     public List<Asset> getAssetsInPlay() {
         return assetRepository.findAll();

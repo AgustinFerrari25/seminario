@@ -1,6 +1,7 @@
 package com.seminario.carpinchoapi.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,15 @@ import com.seminario.carpinchoapi.model.WeekSummary;
 public class GameService {
     //private final AssetService assetService;
     //private final EventService eventService;
+    private GameState currentGameState;
 
+
+    public GameState getCurrentGameState() {
+        if (currentGameState == null) {
+            throw new IllegalStateException("El juego no ha comenzado aún.");
+        }
+        return currentGameState;
+    }
     
 
     public GameState startNewGame(int difficulty) {
@@ -72,9 +81,60 @@ public class GameService {
     }
 
     public GameState processTrade(TradeRequest tradeRequest) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'processTrade'");
+
+        GameState currentState = getCurrentGameState(); // obtiene el juego actual
+
+        double accountBalance = currentState.getAccountBalance();  //  el balance de cuenta del usuario
+
+
+        // Validar la solicitud de TradeRequest
+        if (!tradeRequest.isValid()) {
+            throw new IllegalArgumentException("Trade request no válida");
+        }
+
+        // Obtener el activo desde el Market en el GameState
+        Asset asset = tradeRequest.getAsset();
+        double tradeAmount = tradeRequest.getQuantity().doubleValue() * tradeRequest.getPrice().doubleValue();
+
+        switch (tradeRequest.getTradeType().toUpperCase()) {
+            case "BUY":
+
+                if (accountBalance < tradeAmount) { // valida si tiene suficiente balance para comprar
+                    throw new IllegalArgumentException("Balance insuficiente para realizar la compra");
+                }
+
+                // Actualizar el balance y las tenencias de activos en el GameState
+                currentState.updateBalance(accountBalance - tradeAmount);
+                currentState.addAssetHoldings(asset.getId().toString(), tradeRequest.getQuantity().doubleValue());
+                break;
+
+            case "SELL":
+
+                Map<String, Double> currentHoldings = currentState.getAssetHoldings(); // valida si tiene suficiente balance para vender
+                String assetId = asset.getId().toString(); // el id del activo que se quiere vender
+
+                Double currentQuantity = currentHoldings.get(assetId); //la cantidad actual del activo
+
+
+                // Validar que el activo existe en las tenencias y que la cantidad es suficiente
+                if (currentQuantity == null || currentQuantity < tradeRequest.getQuantity().doubleValue()) {
+                    throw new IllegalArgumentException("Cantidad insuficiente del activo para vender");
+                }
+
+                // Actualizar el balance y las tenencias de activos en el GameState
+                currentState.updateBalance(accountBalance + tradeAmount);
+                currentState.removeAssetHoldings(assetId, tradeRequest.getQuantity().doubleValue());
+                break;
+
+            default:
+                throw new IllegalArgumentException("Tipo de comercio no reconocido: " + tradeRequest.getTradeType());
+        }
+
+        // Regresar el nuevo estado del juego después de procesar la transacción
+        return currentState;
     }
+
+
 
     public List<Asset> getAssetsInPlay() {
         // TODO Auto-generated method stub
