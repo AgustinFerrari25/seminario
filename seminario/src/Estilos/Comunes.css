@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #f9f9f9;
+    background-image: url('/img/fondo.svg');  
+    background-size: 128px 128px;
+}
+
+.wrapper-general {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.header {
+    height: 10%;
+    min-height: 50px;
+    width: 100%;
+    max-height: 75px;
+    margin: 0;
+}
+.play-area {
+    flex: 1; /* Hace que ocupe todo el espacio que sobra */
+    width: 90%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Default font size */
+body {
+    font-size: 0.75rem; /* Base font size */
+  }
+  
+  /* For tablets (min-width: 600px) */
+  @media (min-width: 600px) {
+    body {
+      font-size: 0.9rem; /* Larger font size for tablets */
+    }
+  }
+  
+  /* For desktops (min-width: 900px) */
+  @media (min-width: 900px) {
+    body {
+      font-size: 1rem; /* Even larger font size for desktops */
+    }
+  }
+  
+  /* For large desktops (min-width: 1200px) */
+  @media (min-width: 1200px) {
+    body {
+      font-size: 1.5rem; /* Largest font size for large desktops */
+    }
+  }
+  
+
+/* Tipografías */
+
+    .poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    }
+    
+    .poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    }
+    
+    .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    }
+    
+    .poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    }
+    
+    .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+    
+    .poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    }
+    
+    .poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    }
+    
+    .poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    }
+    
+    .pixel-font {
+        font-family: "Jersey 25", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }

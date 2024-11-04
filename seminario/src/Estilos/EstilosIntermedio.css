@@ -46,15 +46,6 @@ body {
     gap: 20px;
 }
 
-.play-area {
-    height: 87vh;
-    margin: 3vh 0 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Contenido de tutorial grande */
 .tutorial-content-big {
     display: flex;

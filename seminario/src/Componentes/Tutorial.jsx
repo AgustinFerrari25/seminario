@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+
 import '../Estilos/EstilosTutorial.css'
+import '../Estilos/Comunes.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight , faDollarSign , faMoneyBill} from "@fortawesome/free-solid-svg-icons"
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
 import SidebarMenu from './SidebarMenu.jsx';
 import Valores from './Valores.jsx';
+
+// Imports para tutorial grande
+import TutorialGrande from "./Comunes/tutorial-grande.jsx";
+
+// Imports para tutorial chico
+import CuadroDeDialogoChico from "./Comunes/tutorial-chico/cuadro-de-dialogo-chico.jsx";
+import TutorialChico from "./Comunes/tutorial-chico.jsx";
 
 const Tutorial = () => {
     const navigate = useNavigate();
@@ -170,11 +180,12 @@ const Tutorial = () => {
 
 
     return (
-        <>
+        <div className="wrapper-general">
 
 
 
             {/* Header */}
+            <div className="header">
             <header className="headerTuto">
                 <div>
                 
@@ -205,102 +216,60 @@ const Tutorial = () => {
                 </div>
                 </div>
             </header>
+            </div>
             
-            {showSideBar && 
-            
-                <div><SidebarMenu /></div>
-
-            }
-
-            {showValores && 
-            
-                <div><Valores /></div>
-
-             }
-
 
             {/* Play Area */}
             <div className="play-area">
 
+                {/* isContentLowered controla si el tutorial es grande (opcupa toda la ventana)
+                    o chico (cuadro de diálogo abajo, dejando espacio para el área de juego) */}
                 {isContentLowered ? (
                     
                     <> {/* Contenido cuando el diálogo del tutorial está abajo */}
+                    {showSideBar && 
+            
+                    <div><SidebarMenu /></div>
+
+                    }
+
+                    {showValores && 
                     
+                        <div><Valores /></div>
+
+                    }
+
                     <div style={{width: '80%', height: '80%'}}>
                         {tutorialSteps[currentStep].showImage && tutorialSteps[currentStep].image && (
                             <img src={tutorialSteps[currentStep].image} alt="Tutorial Step" />
                         )}
                     </div>
 
-                    <div className="tutorial-content-small">
-                            
-                        {/* Botón Previous */}
-                        <button 
-                            onClick={handlePrevious} 
-                            disabled={currentStep === 0}
-                        >
-                            <FontAwesomeIcon icon={faChevronLeft} />
-                        </button>
-
-                        {/* Cuadro de diálogo y foto de carpincho */}
-                            <div className="tutorial-box-small">
-                                <h2 className="poppins-black">El carpincho de Wall Street</h2>
-                                <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
-                            </div>
-                            <img 
-                                src={carpinchoCharacter} 
-                                alt="Carpincho character" 
-                                className="character-image-small" 
-                            />
-
-                        {/* Botón Next */}
-                        <button 
-                            onClick={handleNext} 
-                            disabled={currentStep === tutorialSteps.length - 1}
-                        >
-                            <FontAwesomeIcon icon={faChevronRight} />
-                        </button>
-
-                    </div>
-                    
+                    <TutorialChico
+                        contenido={tutorialSteps[currentStep].text}
+                        manejarAnterior={handlePrevious}
+                        manejarSiguiente={handleNext}
+                        desactivarAnterior={currentStep===0}
+                        desactivarSiguiente={currentStep === tutorialSteps.length - 1}
+                        />
                     </>
                  
                     ) : (
 
-                    <> {/* Contenido cuando el diálogo del tutorial está abajo */}
+                    <> {/* Contenido cuando el diálogo del tutorial está arriba */}
 
-                        <div className="tutorial-content-big">
-                            <div className="tutorial-box-big">
-                                <h2 className="poppins-black">El carpincho de Wall Street</h2>
-                                <p className="poppins-light ">{tutorialSteps[currentStep].text}</p>
-                            </div>
-                            <img 
-                                src={carpinchoCharacter} 
-                                alt="Carpincho character" 
-                                className="character-image-big" 
-                            />
-                        
-                        </div>
-                        
-                        
-                        <div className="navigation-buttons poppins-black">
-                            <button 
-                                onClick={handlePrevious} 
-                                disabled={currentStep === 0}
-                            >
-                                <FontAwesomeIcon icon={faChevronLeft} /> Anterior
-                            </button>
-                            <button 
-                                onClick={handleNext} 
-                                disabled={currentStep === tutorialSteps.length - 1}
-                            >
-                                Siguiente <FontAwesomeIcon icon={faChevronRight} />
-                            </button>
-                        </div>
+                        <TutorialGrande
+                            contenido={tutorialSteps[currentStep].text}
+                            manejarAnterior={handlePrevious}
+                            manejarSiguiente={handleNext}
+                            desactivarAnterior={currentStep===0}
+                            desactivarSiguiente={currentStep === tutorialSteps.length - 1}
+                        />
+
                     </>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 

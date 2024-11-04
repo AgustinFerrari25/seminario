@@ -1,0 +1,17 @@
+.boton-de-navegacion-chico {
+    padding: 15px 15px;
+    background-color: #ffb800;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.boton-de-navegacion-chico:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.boton-de-navegacion-chico:hover:not(:disabled) {
+    background-color: #e0a800;
+}
