@@ -340,3 +340,42 @@ font-style: italic;
     font-weight: 400;
     font-style: normal;
 }
+
+/**/
+.btn-comprar {
+    padding: 10px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    margin: 5px 0;
+    
+   
+    position: relative;
+    background-color: #ffb800; 
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+
+.btn-comprar:hover {
+    color: whitesmoke;
+    font-weight: bold;
+  }
+  
+  .hover-box {
+    position: absolute;
+    left: 200px; /* Ajusta según la posición deseada */
+    top: 0;
+    padding: 10px;
+    background-color: #0c7556;
+    color: whitesmoke;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hover-box p {
+    margin: 0;
+  }

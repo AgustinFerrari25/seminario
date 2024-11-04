@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight , faDollarSign , faMoneyBill} from "@fortawesome/free-solid-svg-icons"
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
-
+import SidebarMenu from './SidebarMenu.jsx';
+import Valores from './Valores.jsx';
 
 const Tutorial = () => {
     const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Tutorial = () => {
     const [isContentLowered, setIsContentLowered] = useState(false);
     const [showOperar, setShowOperar] = useState(false);
     const [showValor, setShowValor] = useState(false);
+    const [showSideBar, setShowSideBar] = useState(false);
+    const [showValores, setValores] = useState(false);
 
     const tutorialSteps = [
         {
@@ -50,67 +53,67 @@ const Tutorial = () => {
         },
         {
             text: (<>Esta es la pantalla principal de nuestro broker. Tiene información clave sobre el <strong>estado de tu cuenta</strong>.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-01.png",
         },
         {
             text: (<>De momento se ve un poco vacía, pero va a ir completándose a medida que aprendamos más.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-02.png",
         },
         {
-            text: (<>Esto significa cada uno de los números que ves en pantalla.</>),
-            showImage: true,
+            text: (<>Pasando el mouse por arriba de cada valor, verás significa cada uno de los números que hay en pantalla.</>),
+            showImage: false,
             image: "../img/tutorial/tutorial-03.png",
         },
         {
             text: (<>Vamos a hacer nuestra primera inversión entrando a la opción destacada en la barra superior.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-04.png",
         },
         {
             text: (<>Esta pantalla nos permite elegir entre las distintas opciones que tenemos para invertir.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-05.png",
         },
         {
             text: (<>Seleccionando una, podemos acceder a detalles sobre ella. Seleccionemos “Plazo Fijo”.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-06.png",
         },
         {
             text: (<>En este caso, tenemos una descripción del tipo de activo. En otras lecciones tendremos descripciones más detalladas sobre el activo en sí, pero no nos adelantemos.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-07.png",
         },
         {
             text: (<>Esta tabla, que cambia dependiendo del tipo de activo, muestra la cotización actual, y nos indica si se modificó respecto de la última cotización. Esto va a tener más sentido luego.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-08.png",
         },
         {
             text: (<>Este gráfico muestra la evolución de la cotización del activo a lo largo del tiempo. Es útil para poder tener una idea general de cómo se comporta. Es muy útil para activos <strong>volátiles</strong>.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-09.png",
         },
         {
             text: (<>Esta tabla nos muestra nuestras <strong>tenencias</strong>, es decir, cuánto tenemos invertido en este <strong>activo</strong>. Nos muestra cuántas unidades tenemos, si aplica, y su <strong>cotización</strong> actual.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-10.png",
         },
         {
             text: (<>En este apartado tenemos características generales del <strong>activo</strong>, que nos pueden ayudar a decidir si nos conviene invertir.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-11.png",
         },
         {
             text: (<>Finalmente, tenemos los botones de compra y venta del activo. Para <strong>plazo fijo</strong> en particular, no aplica la venta y por eso lo vemos oscurecido.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-12.png",
         },
         {
             text: (<>Hagamos clic en <strong>Comprar</strong> para hacer nuestra primera inversión.</>),
-            showImage: true,
+            showImage: false,
             image: "../img/tutorial/tutorial-13.png",
         },
     ];
@@ -118,8 +121,14 @@ const Tutorial = () => {
     const handleNext = () => {
         if (currentStep < tutorialSteps.length - 1) {
             setCurrentStep(currentStep + 1);
+
+
             if (currentStep === 9) {
                 setIsContentLowered(true);
+            }
+
+            if (currentStep >= 10) {
+                setValores(true);
             }
 
             if (currentStep >= 13) {
@@ -128,7 +137,11 @@ const Tutorial = () => {
 
             if (currentStep >= 14) {
                 setShowValor(true);
+                setShowSideBar(true);
+                setValores(false);
             }
+
+
         }
     };
 
@@ -139,11 +152,18 @@ const Tutorial = () => {
                 setIsContentLowered(false);
             }
         }
+
+        if (currentStep < 12) {
+            setValores(false);
+        }
+
         if (currentStep < 15) {
             setShowOperar(false);
         }
+
         if (currentStep < 16) {
             setShowValor(false);
+            setShowSideBar(false);
         }
     };
 
@@ -151,6 +171,9 @@ const Tutorial = () => {
 
     return (
         <>
+
+
+
             {/* Header */}
             <header className="headerTuto">
                 <div>
@@ -162,12 +185,12 @@ const Tutorial = () => {
                     className="logoMenu" 
                 />
                 
-                <p><FontAwesomeIcon icon={faGraduationCap} /> Modo aprendizaje</p>
-                {showOperar && <p><FontAwesomeIcon icon={faMoneyBill} /></p>}
+                <p><FontAwesomeIcon icon={faGraduationCap} /> Modo Aprendizaje</p>
+                {showOperar && <p className="btn-comprar"><FontAwesomeIcon icon={faMoneyBill} /></p>}
                 </div>
 
                 <div>
-                {showValor && <p><FontAwesomeIcon icon={faDollarSign} /><strong>1000,00</strong></p>}
+                {showValor && <p><FontAwesomeIcon icon={faDollarSign} /><strong>1.000,00</strong></p>}
 
                 <div className="header-icons">
                     <FontAwesomeIcon 
@@ -183,6 +206,19 @@ const Tutorial = () => {
                 </div>
             </header>
             
+            {showSideBar && 
+            
+                <div><SidebarMenu /></div>
+
+            }
+
+            {showValores && 
+            
+                <div><Valores /></div>
+
+             }
+
+
             {/* Play Area */}
             <div className="play-area">
 
