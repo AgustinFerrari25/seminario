@@ -6,6 +6,9 @@ body {
     background-color: #f9f9f9;
     background-image: url('/img/fondo.svg');  
     background-size: 128px 128px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .wrapper-general {
@@ -26,12 +29,53 @@ body {
     margin: 5vh auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
+.explicado-en-hover {
+  position:relative;
+}
 
-/* Default font size */
+/* Cuadro de texto que aparece con la explicación cuando usamos el hook explicacionEnHover */
+.explicacion-en-hover {
+  background-color: #0c7556;
+  color: white;
+  padding: 15px 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  min-width: 150px;
+  max-width: 400px; /* Limita el ancho del cuadro de descripción */
+  text-align: center;
+  position: absolute;
+  top: 100%; /* Position it directly below the hovered element */
+  left: 50%; /* Center it horizontally relative to the parent */
+  transform: translateX(-50%); /* Adjust centering */
+  margin-top: 20px; /* Small margin for spacing */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 120%;
+  z-index: 1; /* Ensure it appears above other elements */
+}
+
+/* Triangulito que apunta hacia arriba, indicando qué componente se está explicando */
+.explicacion-en-hover:before {
+  content: "";
+  position: absolute;
+  top: -10px; /* Adjust based on the height of the triangle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #0c7556;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+
+/* Tamaños de tipografías */
 body {
     font-size: 0.75rem; /* Base font size */
   }
@@ -112,4 +156,11 @@ body {
         font-family: "Jersey 25", sans-serif;
         font-weight: 400;
         font-style: normal;
+    }
+
+    .oxanium {
+      font-family: "Oxanium", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: italic;
     }

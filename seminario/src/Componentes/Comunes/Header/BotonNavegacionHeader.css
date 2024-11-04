@@ -1,0 +1,9 @@
+.boton-navegacion-header {
+    font-size: 1.75rem;
+}
+
+.boton-navegacion-header:hover {
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+  }

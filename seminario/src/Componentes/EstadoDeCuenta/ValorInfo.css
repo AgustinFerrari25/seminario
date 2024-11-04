@@ -1,0 +1,30 @@
+.valor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-start;
+  }
+
+.valor-info-titulo {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+.valor-info-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 10px;
+  }
+
+.simbolo-pesos {
+    width: 5rem;
+  }
+  
+.valor-info-valor {
+    margin: 0;
+    font-size: 2.5rem;
+}
+  
+  

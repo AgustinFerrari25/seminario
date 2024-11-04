@@ -5,27 +5,29 @@ import '../Estilos/EstilosTutorial.css'
 import '../Estilos/Comunes.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faGear, faGraduationCap, faChevronLeft, faChevronRight , faDollarSign , faMoneyBill} from "@fortawesome/free-solid-svg-icons"
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
 import SidebarMenu from './SidebarMenu.jsx';
-import Valores from './Valores.jsx';
+import Valores from './EstadoDeCuenta/Valores.jsx';
+
+// Imports para header
+import Header from "./Comunes/Header.jsx";
 
 // Imports para tutorial grande
-import TutorialGrande from "./Comunes/tutorial-grande.jsx";
+import TutorialGrande from "./Tutorial/tutorial-grande.jsx";
 
 // Imports para tutorial chico
-import CuadroDeDialogoChico from "./Comunes/tutorial-chico/cuadro-de-dialogo-chico.jsx";
-import TutorialChico from "./Comunes/tutorial-chico.jsx";
+import CuadroDeDialogoChico from "./Tutorial/tutorial-chico/cuadro-de-dialogo-chico.jsx";
+import TutorialChico from "./Tutorial/tutorial-chico.jsx";
 
 const Tutorial = () => {
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
     const [isContentLowered, setIsContentLowered] = useState(false);
-    const [showOperar, setShowOperar] = useState(false);
+    const [mostrarOperar, setMostrarOperar] = useState(false);
     const [showValor, setShowValor] = useState(false);
     const [showSideBar, setShowSideBar] = useState(false);
-    const [showValores, setValores] = useState(false);
+    const [mostrarEstadoDeCuenta, setMostrarEstadoDeCuenta] = useState(false);
 
     const tutorialSteps = [
         {
@@ -72,7 +74,7 @@ const Tutorial = () => {
             image: "../img/tutorial/tutorial-02.png",
         },
         {
-            text: (<>Pasando el mouse por arriba de cada valor, verás significa cada uno de los números que hay en pantalla.</>),
+            text: (<><strong>Pasando el mouse por arriba de cada valor</strong>, verás significa cada uno de los números que hay en pantalla.</>),
             showImage: false,
             image: "../img/tutorial/tutorial-03.png",
         },
@@ -138,17 +140,17 @@ const Tutorial = () => {
             }
 
             if (currentStep >= 10) {
-                setValores(true);
+                setMostrarEstadoDeCuenta(true);
             }
 
             if (currentStep >= 13) {
-                setShowOperar(true);
+                setMostrarOperar(true);
             }
 
             if (currentStep >= 14) {
                 setShowValor(true);
                 setShowSideBar(true);
-                setValores(false);
+                setMostrarEstadoDeCuenta(false);
             }
 
 
@@ -164,11 +166,11 @@ const Tutorial = () => {
         }
 
         if (currentStep < 12) {
-            setValores(false);
+            setMostrarEstadoDeCuenta(false);
         }
 
         if (currentStep < 15) {
-            setShowOperar(false);
+            setMostrarOperar(false);
         }
 
         if (currentStep < 16) {
@@ -185,38 +187,11 @@ const Tutorial = () => {
 
 
             {/* Header */}
-            <div className="header">
-            <header className="headerTuto">
-                <div>
-                
-                <img 
-                    onClick={() => navigate("/")} 
-                    src={carpinchoLogo} 
-                    alt="Carpincho de Wall Street" 
-                    className="logoMenu" 
+            <Header
+                modoDeJuego={"Aprendizaje"}
+                mostrarEstadoDeCuenta={mostrarEstadoDeCuenta}
+                mostrarOperar={mostrarOperar}
                 />
-                
-                <p><FontAwesomeIcon icon={faGraduationCap} /> Modo Aprendizaje</p>
-                {showOperar && <p className="btn-comprar"><FontAwesomeIcon icon={faMoneyBill} /></p>}
-                </div>
-
-                <div>
-                {showValor && <p><FontAwesomeIcon icon={faDollarSign} /><strong>1.000,00</strong></p>}
-
-                <div className="header-icons">
-                    <FontAwesomeIcon 
-                        icon={faArrowLeft} 
-                        onClick={() => navigate(-1)} 
-                        className="back-icon" 
-                    />
-                    <FontAwesomeIcon 
-                        icon={faGear} 
-                        className="settings-icon" 
-                    />
-                </div>
-                </div>
-            </header>
-            </div>
             
 
             {/* Play Area */}
@@ -233,9 +208,9 @@ const Tutorial = () => {
 
                     }
 
-                    {showValores && 
+                    {mostrarEstadoDeCuenta && 
                     
-                        <div><Valores /></div>
+                        <Valores valorNeto={1000} valorLiquido={1000}/>
 
                     }
 

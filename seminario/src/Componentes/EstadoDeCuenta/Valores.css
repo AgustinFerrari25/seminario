@@ -1,0 +1,7 @@
+.valores-container {
+    display: flex;
+    justify-content:center;
+    gap: 5%;
+    align-items: center;
+    width: 100%;
+  }

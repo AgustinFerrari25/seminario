@@ -1,45 +1,4 @@
 
-
-.headerTuto {
-    background-color: #ffb800;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logoMenu {
-    height: 50px;
-    cursor: pointer;
-}
-
-.header-icons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-
-
-.back-icon, .settings-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.headerTuto p {
-    font-weight: bold;
-    margin-right: auto;
-    margin-left: 40px;
-}
-
-.headerTuto div {
-    display: flex;
-    font-weight: bold;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
-}
-
     .navigation-buttons {
         display: flex;
         justify-content: space-between;
@@ -179,27 +138,7 @@
 
 
 /**/
-.btn-comprar {
-    padding: 10px;
-    font-size: 18px;
-    color: #000;
-    cursor: pointer;
-    margin: 5px 0;
-    
-   
-    position: relative;
-    background-color: #ffb800; 
 
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-  }
-
-.btn-comprar:hover {
-    color: whitesmoke;
-    font-weight: bold;
-  }
   
   .hover-box {
     position: absolute;
