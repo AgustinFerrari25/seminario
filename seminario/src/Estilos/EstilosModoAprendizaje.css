@@ -265,7 +265,8 @@ body {
 
 .sidebar-menu {
   display: flex;
-  position: sticky;
+
+  margin-right:auto;
   margin-left: 10%;
   margin-top: 2%;
 }
@@ -308,14 +309,16 @@ body {
 }
 
 .hover-box {
-  position: absolute;
-  left: 300px; /* Ajusta según la posición deseada */
+  position: static;
+  left: 400px; 
   top: 0;
   padding: 10px;
   background-color: #0c7556;
   color: whitesmoke;
+  font-size: 1.2rem;
   border-radius: 5px;
   width: 200px;
+  height: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

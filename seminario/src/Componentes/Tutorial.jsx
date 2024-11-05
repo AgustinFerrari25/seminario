@@ -204,7 +204,7 @@ const Tutorial = () => {
                     <> {/* Contenido cuando el diálogo del tutorial está abajo */}
                     {showSideBar && 
             
-                    <div><SidebarMenu /></div>
+                   <SidebarMenu />
 
                     }
 

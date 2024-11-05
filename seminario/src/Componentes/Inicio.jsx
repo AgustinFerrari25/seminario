@@ -12,7 +12,7 @@ const Inicio=()=>{
     const navigate = useNavigate();
     return(
       <div className="home-container">
-        <div className="header">
+        <div className="header-inicio">
           <img src={carpinchoLogo} alt="Carpincho de Wall Street" className="logo" />
           <h1 className="title-text">El Carpincho de Wall Street</h1>
         </div>
