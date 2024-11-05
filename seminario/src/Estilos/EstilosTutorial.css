@@ -155,3 +155,31 @@
   .hover-box p {
     margin: 0;
   }
+
+
+  .text-box {
+    position: fixed;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: transparent;
+    background-size: 128px 128px;
+    text-align: left;
+}
+
+.text-box h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+
+}
+
+.text-box p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+
+}

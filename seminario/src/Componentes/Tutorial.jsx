@@ -28,6 +28,7 @@ const Tutorial = () => {
     const [showValor, setShowValor] = useState(false);
     const [showSideBar, setShowSideBar] = useState(false);
     const [mostrarEstadoDeCuenta, setMostrarEstadoDeCuenta] = useState(false);
+    const [showText ,setShowText] = useState(false);
 
     const tutorialSteps = [
         {
@@ -151,7 +152,14 @@ const Tutorial = () => {
                 setShowValor(true);
                 setShowSideBar(true);
                 setMostrarEstadoDeCuenta(false);
+
             }
+
+            if (currentStep >= 16) {
+
+                setShowText(true);
+            }
+
 
 
         }
@@ -176,6 +184,10 @@ const Tutorial = () => {
         if (currentStep < 16) {
             setShowValor(false);
             setShowSideBar(false);
+        }
+
+        if (currentStep < 18) {
+            setShowText(false);
         }
     };
 
@@ -213,6 +225,17 @@ const Tutorial = () => {
                         <Valores valorNeto={1000} valorLiquido={1000}/>
 
                     }
+
+                     {/* Contenido de Texto tutorial */}
+                    {showText && 
+            
+                    <div className="text-box"> <h1 className="poppins-black">Plazo Fijo</h1>
+                    
+                    <p className="poppins-medium">El plazo fijo permite invertir un monto específico por un plazo a partir de 30 días a cambio de un interés acordado previamente.</p>
+                    </div>
+
+                    }
+
 
                     <div style={{width: '80%', height: '80%'}}>
                         {tutorialSteps[currentStep].showImage && tutorialSteps[currentStep].image && (

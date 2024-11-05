@@ -90,6 +90,7 @@ const Header = ({
                         mostrarBoton={(mostrarOperar || mostrarTodosLosBotones)}
                         icono={faMoneyBill}
                         explicacion={'Operar en el mercado.'}
+                        
                         />
                     
                     {/* Portfolio */}

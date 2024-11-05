@@ -309,8 +309,8 @@ body {
 }
 
 .hover-box {
-  position: static;
-  left: 400px; 
+  position: relative;
+  left: -450px; 
   top: 0;
   padding: 10px;
   background-color: #0c7556;

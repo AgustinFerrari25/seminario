@@ -13,7 +13,7 @@
     border: 5px solid #573523;
     padding: 20px;
     width: 100%;  
-    height: 150px; 
+    height: auto; 
     overflow: visible; 
     display: flex;
     flex-direction: column;
