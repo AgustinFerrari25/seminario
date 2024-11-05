@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import carpinchoLogo from '../img/carpincho-moneda.png';
+import carpinchoLogo from '../../img/carpincho-moneda.png';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faGear } from "@fortawesome/free-solid-svg-icons";
 

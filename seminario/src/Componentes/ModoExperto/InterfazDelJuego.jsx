@@ -4,17 +4,39 @@ import CaracteristicasActivo from './CaracteristicasActivo';
 import { useNavigate } from 'react-router-dom';
 import Grafico from '../Grafico';
 import '../..//Estilos/EstilosExperto.css'
+import Header from '../Comunes/Header.jsx'
+import GraficoTendencias from '../ModoExperto/GraficoTendencias.jsx'
+import { useEffect , useRef} from 'react';
+
 
 const InterfazDelJuego = () => {
     const [despliegaMenu, setDespliegaMenu] = useState(false);
-
+    const menuRef = useRef(null);
     const despliegueMenu = () => {
         setDespliegaMenu(prevState => !prevState);
     };
+    // Detectar clics fuera del menú para cerrarlo
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setDespliegaMenu(false);
+            }
+        };
+        
+        if (despliegaMenu) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [despliegaMenu]);
 
     return (
         <>
-           
+            <Header/>
             <div className="contenido-principal">
             <div className="menu-hamburguesa">
                     <button className="boton-menu" onClick={despliegueMenu}>Mostrar Menú</button>
@@ -30,7 +52,7 @@ const InterfazDelJuego = () => {
                         <p><strong>Variación:</strong> +1%</p>
                     </div>
                     <div className="grafico">
-                    <Grafico /> {/* Aquí deberías integrar tu componente de gráfico */}
+                    <GraficoTendencias /> {/* Aquí deberías integrar tu componente de gráfico */}
                         <p>Gráfico de tasas</p>
                     </div>
                 </div>
@@ -50,7 +72,7 @@ const InterfazDelJuego = () => {
                 </div>
             </div>
 
-            {despliegaMenu && <MenuActivos />}
+            <MenuActivos isOpen={despliegaMenu} closeMenu={despliegueMenu} menuRef={menuRef} />
         
 
             </>
