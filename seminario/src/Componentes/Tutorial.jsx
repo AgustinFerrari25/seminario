@@ -7,8 +7,9 @@ import '../Estilos/Comunes.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import carpinchoLogo from '../img/carpincho-moneda.png';
 import carpinchoCharacter from '../img/carpincho-traje.jpeg';
-import SidebarMenu from './SidebarMenu.jsx';
+import MenuSeleccionActivos from './Comunes/Operar/MenuSeleccionActivos/MenuSeleccionActivos.jsx';
 import Valores from './EstadoDeCuenta/Valores.jsx';
+import Operar from './Comunes/Operar/Operar.jsx'
 
 // Imports para header
 import Header from "./Comunes/Header.jsx";
@@ -201,40 +202,39 @@ const Tutorial = () => {
             {/* Header */}
             <Header
                 modoDeJuego={"Aprendizaje"}
-                mostrarEstadoDeCuenta={mostrarEstadoDeCuenta}
+                mostrarEstadoDeCuenta={currentStep >= 10}
                 mostrarOperar={mostrarOperar}
+                destacarOperar={currentStep===14}
+                funcionOperar={currentStep === 14 ? handleNext : null}
                 />
             
 
             {/* Play Area */}
             <div className="play-area">
 
+                
                 {/* isContentLowered controla si el tutorial es grande (opcupa toda la ventana)
                     o chico (cuadro de diálogo abajo, dejando espacio para el área de juego) */}
                 {isContentLowered ? (
                     
                     <> {/* Contenido cuando el diálogo del tutorial está abajo */}
-                    {showSideBar && 
-            
-                   <SidebarMenu />
-
-                    }
-
-                    {mostrarEstadoDeCuenta && 
                     
+                    
+                    <div className="estado-de-cuenta">
+                    {mostrarEstadoDeCuenta && 
+                        
                         <Valores valorNeto={1000} valorLiquido={1000}/>
 
                     }
+                    </div>
+                    
+                    <Operar
+                        mostrarMenuSeleccionActivos={showSideBar}
+                        mostrarDescripcionDelActivo={showText}
+                        mostrarGraficoTendencias={showText}
+                    />
 
                      {/* Contenido de Texto tutorial */}
-                    {showText && 
-            
-                    <div className="text-box"> <h1 className="poppins-black">Plazo Fijo</h1>
-                    
-                    <p className="poppins-medium">El plazo fijo permite invertir un monto específico por un plazo a partir de 30 días a cambio de un interés acordado previamente.</p>
-                    </div>
-
-                    }
 
 
                     <div style={{width: '80%', height: '80%'}}>
@@ -248,7 +248,7 @@ const Tutorial = () => {
                         manejarAnterior={handlePrevious}
                         manejarSiguiente={handleNext}
                         desactivarAnterior={currentStep===0}
-                        desactivarSiguiente={currentStep === tutorialSteps.length - 1}
+                        desactivarSiguiente={(currentStep === tutorialSteps.length - 1 || currentStep === 14)}
                         />
                     </>
                  

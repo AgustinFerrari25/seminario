@@ -4,15 +4,15 @@ import "./BotonNavegacionHeader.css";
 import "../../../Estilos/Comunes.css";
 import useExplicacionEnHover from '../../../hooks/explicacionEnHover';
 
-const BotonNavegacionHeader = ({ funcionNavegacion, mostrarBoton, icono, explicacion }) => {
+const BotonNavegacionHeader = ({ funcionNavegacion, mostrarBoton, icono, explicacion, destacar}) => {
 
     const { textoExplicacion, mostrarExplicacion, ocultarExplicacion } = useExplicacionEnHover();
 
     return (
         <div>
             <div
-                className='explicado-en-hover'
-                onClick={() => funcionNavegacion}
+                className={`explicado-en-hover ${destacar ? 'destacado' : ''}`}
+                onClick={funcionNavegacion}
                 onMouseEnter={() => mostrarExplicacion(explicacion)}
                 onMouseLeave={ocultarExplicacion}
                 style={{visibility: (mostrarBoton) ? 'visible' : 'hidden'}}

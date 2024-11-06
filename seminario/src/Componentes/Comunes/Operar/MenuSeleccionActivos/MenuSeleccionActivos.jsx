@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import './MenuSeleccionActivos.css'
+import MenuSeleccionActivosOpcion from './MenuSeleccionActivosOpcion';
 
-
-const SidebarMenu = () => {
+const MenuSeleccionActivos = ({mostrar}) => {
   const [hoverText, setHoverText] = useState('');
 
   const options = [
@@ -11,26 +12,17 @@ const SidebarMenu = () => {
   ];
 
   return (
-    <div className="sidebar-menu">
-      <div className="menu-options">
+    <div className="menu-seleccion-activos" style={{visibility: (mostrar) ? 'visible' : 'hidden'}}>
         {options.map((option, index) => (
-          <div
+            <MenuSeleccionActivosOpcion 
             key={index}
-            className="menu-option"
-            onMouseEnter={() => setHoverText(option.description)}
-            onMouseLeave={() => setHoverText('')}
-          >
-            {option.label}
-          </div>
+            etiqueta={option.label}
+            explicacion={option.description}
+            ultimaOpcion={index===options.length -1}
+          />
         ))}
-      </div>
-      {hoverText && (
-        <div className="hover-box">
-          <p>{hoverText}</p>
-        </div>
-      )}
     </div>
   );
 };
 
-export default SidebarMenu;
+export default MenuSeleccionActivos;

@@ -6,9 +6,22 @@ body {
     background-color: #f9f9f9;
     background-image: url('/img/fondo.svg');  
     background-size: 128px 128px;
+    background-repeat: repeat;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
+}
+
+/* Esto aclara el fondo para que se pueda leer mejor el texto */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(249, 249, 249, 0.5);
+  z-index: -1;
 }
 
 .wrapper-general {
@@ -35,17 +48,19 @@ body {
 
 .explicado-en-hover {
   position:relative;
+
 }
 
 /* Cuadro de texto que aparece con la explicación cuando usamos el hook explicacionEnHover */
 .explicacion-en-hover {
-  background-color: #0c7556;
-  color: white;
+  background-color: #437C90;
+  border: 3px solid #366474;
   padding: 15px 10px;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   width: 100%;
   min-width: 150px;
+  min-height: 50px;
   max-width: 400px; /* Limita el ancho del cuadro de descripción */
   text-align: center;
   position: absolute;
@@ -54,6 +69,7 @@ body {
   transform: translateX(-50%); /* Adjust centering */
   margin-top: 20px; /* Small margin for spacing */
   font-family: "Poppins", sans-serif;
+  color: white;
   font-weight: 300;
   font-style: normal;
   font-size: 0.9rem;
@@ -65,15 +81,49 @@ body {
 .explicacion-en-hover:before {
   content: "";
   position: absolute;
-  top: -10px; /* Adjust based on the height of the triangle */
+  top: -20px; /* Adjust based on the height of the triangle */
   left: 50%;
   transform: translateX(-50%);
   width: 20px;
   height: 20px;
-  background-color: #0c7556;
+  background-color: #366474;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
+/* Clase que crea un borde alrededor de un elemento para destacarlo como parte de un tutorial */
+
+@keyframes pulsar { /* Animación que hace crecer y decrecer el cículo */
+  0% {
+      transform: scale(1);
+      opacity: 0.75;
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0.75;
+  }
+}
+
+.destacado {
+  position: relative;
+  display: inline-block;
+}
+
+.destacado::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  left: -40%;
+  width: 175%;
+  height: 175%;
+  
+  border: 3px solid #573523;
+  animation: pulsar 1.5s infinite;
+  pointer-events: none;
+}
 
 /* Tamaños de tipografías */
 body {

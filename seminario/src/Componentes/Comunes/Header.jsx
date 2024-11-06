@@ -29,11 +29,20 @@ import '../../Estilos/Comunes.css'
 
 const Header = ({
     modoDeJuego,
+    funcionEstadoDeCuenta,
+    funcionOperar,
+    funcionPortfolio,
+    funcionNoticias,
     mostrarTodosLosBotones,
     mostrarEstadoDeCuenta,
     mostrarOperar,
     mostrarPortfolio,
-    mostrarNoticias
+    mostrarNoticias,
+    destacarEstadoDeCuenta,
+    destacarOperar,
+    destacarPortfolio,
+    destacarNoticias,
+
     }) => {
     
     const navigate = useNavigate();
@@ -77,43 +86,40 @@ const Header = ({
 
                     {/* Estado de cuenta */}
                     <BotonNavegacionHeader
-                        funcionNavegacion={null}
+                        funcionNavegacion={funcionEstadoDeCuenta}
                         mostrarBoton={(mostrarEstadoDeCuenta || mostrarTodosLosBotones)}
                         icono={faSackDollar}
                         explicacion={'Navegar a la vista de estado de cuenta.'}
+                        destacar={destacarEstadoDeCuenta}
                         />
                     
                     {/* Comprar activos / Operar */}
 
                     <BotonNavegacionHeader
-                        funcionNavegacion={null}
+                        funcionNavegacion={funcionOperar}
                         mostrarBoton={(mostrarOperar || mostrarTodosLosBotones)}
                         icono={faMoneyBill}
                         explicacion={'Operar en el mercado.'}
-                        
+                        destacar={destacarOperar}
                         />
                     
                     {/* Portfolio */}
 
                     <BotonNavegacionHeader
-                        funcionNavegacion={null}
+                        funcionNavegacion={funcionPortfolio}
                         mostrarBoton={(mostrarPortfolio || mostrarTodosLosBotones)}
                         icono={faBriefcase}
                         explicacion={'Navegar a la vista de portfolio.'}
+                        destacar={destacarPortfolio}
                         />
 
                     {/* Noticias */}
-                    <p
-                        onClick={() => null}
-                        style={{visibility: (mostrarNoticias || mostrarTodosLosBotones) ? 'visible' : 'hidden'}}
-                        >
-                        <FontAwesomeIcon className='navegacion-icono' icon={faNewspaper} />
-                    </p>
                     <BotonNavegacionHeader
-                        funcionNavegacion={null}
+                        funcionNavegacion={funcionNoticias}
                         mostrarBoton={(mostrarNoticias || mostrarTodosLosBotones)}
                         icono={faNewspaper}
                         explicacion={'Ver las últimas noticias.'}
+                        destacar={destacarNoticias}
                         />
                 </div>
             

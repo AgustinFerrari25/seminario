@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const TrendChart = () => {
+const TrendChart = ({mostrar, valorMaximo, valorMinimo, empezarEnCero}) => {
   const data = {
     labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], // Etiquetas de cada punto (puedes cambiarlas según los meses o periodos deseados)
     datasets: [
@@ -30,21 +30,22 @@ const TrendChart = () => {
     },
     scales: {
       y: {
-        beginAtZero: true,
-        max: 50, // Ajusta el máximo del eje Y según el ejemplo (50%)
+        beginAtZero: empezarEnCero,
+        max: valorMaximo, // Ajusta el máximo del eje Y según el ejemplo (50%)
+        min: valorMinimo,
         ticks: {
           callback: function(value) {
             return value + '%'; // Muestra los valores con el símbolo de porcentaje
           },
-          color: 'white', // Color de las etiquetas en el eje Y
+          color: 'black', // Color de las etiquetas en el eje Y
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.2)', // Color de las líneas de la cuadrícula
+          color: 'rgba(255, 255, 255, 0.6)', // Color de las líneas de la cuadrícula
         },
       },
       x: {
         ticks: {
-          color: 'white', // Color de las etiquetas en el eje X
+          color: 'black', // Color de las etiquetas en el eje X
         },
         grid: {
           display: false, // Oculta las líneas de la cuadrícula en el eje X
@@ -54,7 +55,7 @@ const TrendChart = () => {
   };
 
   return (
-    <div style={{ backgroundColor: '#4B4B7C', padding: '20px', borderRadius: '8px' }}>
+    <div style={{ backgroundColor: '#9FA4C4', padding: '20px', borderRadius: '8px', border: '2px solid black', visibility: (mostrar) ? 'visible' : 'hidden'}}>
       <Line data={data} options={options} />
     </div>
   );

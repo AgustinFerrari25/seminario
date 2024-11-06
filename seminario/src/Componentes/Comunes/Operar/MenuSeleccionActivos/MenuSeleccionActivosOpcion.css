@@ -1,0 +1,10 @@
+.menu-seleccion-activos-opcion{
+    color: #F9A003;
+    border-bottom: 2px solid black;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+.utilma-opcion {
+    border-bottom: none;
+}
