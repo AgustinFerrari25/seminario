@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +11,7 @@ body {
     height: 100%;
     background-color: #f9f9f9;
     background-image: url('/img/fondo.svg');  
-    background-size: 128px 128px;
+    background-size: 96px 96px;
     background-repeat: repeat;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -20,7 +26,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(249, 249, 249, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   z-index: -1;
 }
 
@@ -28,7 +34,11 @@ body::before {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 }
+
 .header {
     height: 10%;
     min-height: 50px;
@@ -125,7 +135,7 @@ body::before {
   pointer-events: none;
 }
 
-/* Tamaños de tipografías */
+/* Configuraciones responsive */
 body {
     font-size: 0.75rem; /* Base font size */
   }
@@ -136,12 +146,23 @@ body {
       font-size: 0.9rem; /* Larger font size for tablets */
     }
   }
+
+  .wrapper-general {
+    min-width: 600px;
+    min-height: 300px;
+    max-height: 360px;
+}
   
   /* For desktops (min-width: 900px) */
   @media (min-width: 900px) {
     body {
       font-size: 1rem; /* Even larger font size for desktops */
     }
+    .wrapper-general {
+      min-width: 900px;
+      min-height: 450px;
+      max-height: 540px;
+  }
   }
   
   /* For large desktops (min-width: 1200px) */
@@ -149,6 +170,11 @@ body {
     body {
       font-size: 1.5rem; /* Largest font size for large desktops */
     }
+    .wrapper-general {
+      min-width: 1200px;
+      min-height: 600px;
+      max-height: 720px;
+  }
   }
   
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import './GraficoTendencias.css';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const TrendChart = ({mostrar, valorMaximo, valorMinimo, empezarEnCero}) => {
   const data = {
@@ -22,6 +24,7 @@ const TrendChart = ({mostrar, valorMaximo, valorMinimo, empezarEnCero}) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     devicePixelRatio: 2, // Ajusta a 2 o incluso más para pantallas de alta densidad
     plugins: {
       legend: {
@@ -55,8 +58,8 @@ const TrendChart = ({mostrar, valorMaximo, valorMinimo, empezarEnCero}) => {
   };
 
   return (
-    <div style={{ backgroundColor: '#9FA4C4', padding: '20px', borderRadius: '8px', border: '2px solid black', visibility: (mostrar) ? 'visible' : 'hidden'}}>
-      <Line data={data} options={options} />
+    <div className='grafico-tendencias-fondo' style={{visibility: (mostrar) ? 'visible' : 'hidden'}}>
+        <Line data={data} options={options} />
     </div>
   );
 };

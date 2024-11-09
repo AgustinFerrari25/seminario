@@ -1,0 +1,37 @@
+.tenencias-tabla {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: flex-start;
+}
+
+.tenencias-columnas {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10%;
+}
+
+.tenencias-etiqueta {
+    width: 45%;
+    text-align: left;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.tenencias-separador {
+    width: 100%;
+    height: 2px;
+    background-color: #888;
+    margin: 0.25rem 0;
+}
+
+.tenencias-valor {
+    width: 45%;
+    text-align: left;
+    font-size: 0.9rem;
+    margin: 0;
+}

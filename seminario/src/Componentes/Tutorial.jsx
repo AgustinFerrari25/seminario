@@ -30,6 +30,7 @@ const Tutorial = () => {
     const [showSideBar, setShowSideBar] = useState(false);
     const [mostrarEstadoDeCuenta, setMostrarEstadoDeCuenta] = useState(false);
     const [showText ,setShowText] = useState(false);
+    const [activoMostrado, setActivoMostrado] = useState(0)
 
     const tutorialSteps = [
         {
@@ -132,6 +133,58 @@ const Tutorial = () => {
         },
     ];
 
+    const activos = [
+        {
+            'nombre' : 'Plazo fijo',
+            'descripcion' : 'El plazo fijo permite invertir un monto específico por un plazo a partir de 30 días a cambio de un interés acordado previamente.',
+            'cotizacion' : '20% anual',
+            'variacionNominal' : 'N/A',
+            'variacionPorcentual' : '+2%'
+        },
+        {
+            'nombre' : 'Bono',
+            'descripcion' : 'El bono representa una promesa de pago de parte de un Estado. La compra de un bono representa un préstamo al gobierno, y el dinero será devuelto con interés.',
+            'cotizacion' : '25% anual',
+            'variacionNominal' : 'N/A',
+            'variacionPorcentual' : '-3%'
+        },
+        {
+            'nombre' : 'Obligaciones Negociables',
+            'descripcion' : 'Las obligaciones negociables son documentos que emiten empresas privadas. Comprar una ON equivale a hacer un préstamo a la organización, que devolverá el dinero con intereses una vez que haya pasado el plazo pactado.',
+            'cotizacion' : '33% anual',
+            'variacionNominal' : 'N/A',
+            'variacionPorcentual' : '+6%'
+        }
+
+    ]
+
+    const estadoDeCuenta = {
+        'valorNeto' : 1000,
+        'valorLiquido' : 1000,
+        'portfolio' : {
+            'Plazo fijo' : {
+                'tenencias' : 1000,
+                'valorNominal' : 5000
+            },
+            'Bono' : {
+                'tenencias' : 2000,
+                'valorNominal' : 3000,
+            },
+            'Obligaciones Negociables' : {
+                'tenencias' : 2000,
+                'valorNominal' : 300
+            }
+
+        }
+    }
+
+    const manejarCambioDeActivo = (indice) => {
+        if (indice === 0 && currentStep === 16) {
+            setCurrentStep( currentStep + 1)
+        }
+        setActivoMostrado(indice);
+    };
+
     const handleNext = () => {
         if (currentStep < tutorialSteps.length - 1) {
             setCurrentStep(currentStep + 1);
@@ -223,32 +276,39 @@ const Tutorial = () => {
                     <div className="estado-de-cuenta">
                     {mostrarEstadoDeCuenta && 
                         
-                        <Valores valorNeto={1000} valorLiquido={1000}/>
+                        <Valores valorNeto={estadoDeCuenta['valorNeto']} valorLiquido={estadoDeCuenta['valorLiquido']}/>
 
                     }
                     </div>
-                    
+                    {showSideBar &&
                     <Operar
+                        activoMostado={activos[activoMostrado]}
+                        estadoDeCuenta={estadoDeCuenta}
+
                         mostrarMenuSeleccionActivos={showSideBar}
-                        mostrarDescripcionDelActivo={showText}
-                        mostrarGraficoTendencias={showText}
+                        menuActivosCondicionDestacar={currentStep===16}
+                        menuActivosOpcionADestacar={0}
+                        menuActivosFuncionNavegacion={manejarCambioDeActivo}
+
+                        mostrarDescripcionDelActivo={currentStep > 16}
+                        mostrarCotizacion={currentStep > 17}
+                        mostrarGraficoTendencias={currentStep > 18}
+                        mostrarCaracteristicas={currentStep>19}
+                        mostrarTenencias={currentStep>19}
+
+                        
                     />
-
+                    }
                      {/* Contenido de Texto tutorial */}
-
-
-                    <div style={{width: '80%', height: '80%'}}>
-                        {tutorialSteps[currentStep].showImage && tutorialSteps[currentStep].image && (
-                            <img src={tutorialSteps[currentStep].image} alt="Tutorial Step" />
-                        )}
-                    </div>
 
                     <TutorialChico
                         contenido={tutorialSteps[currentStep].text}
                         manejarAnterior={handlePrevious}
                         manejarSiguiente={handleNext}
                         desactivarAnterior={currentStep===0}
-                        desactivarSiguiente={(currentStep === tutorialSteps.length - 1 || currentStep === 14)}
+                        desactivarSiguiente={(currentStep === tutorialSteps.length - 1 || currentStep === 14 || currentStep === 16)}
+                        abajo={currentStep > 9 && currentStep != 19}
+                        arriba={currentStep === 19}
                         />
                     </>
                  

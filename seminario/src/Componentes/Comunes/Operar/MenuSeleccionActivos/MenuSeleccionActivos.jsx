@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import './MenuSeleccionActivos.css'
 import MenuSeleccionActivosOpcion from './MenuSeleccionActivosOpcion';
 
-const MenuSeleccionActivos = ({mostrar}) => {
+const MenuSeleccionActivos = ({
+  mostrar,
+  funcionNavegacion,
+  condicionDestacar,
+  opcionADestacar
+  }) => {
   const [hoverText, setHoverText] = useState('');
 
   const options = [
@@ -19,6 +24,8 @@ const MenuSeleccionActivos = ({mostrar}) => {
             etiqueta={option.label}
             explicacion={option.description}
             ultimaOpcion={index===options.length -1}
+            funcionNavegacion={() => funcionNavegacion(index)}
+            destacar = {condicionDestacar && index === opcionADestacar}
           />
         ))}
     </div>

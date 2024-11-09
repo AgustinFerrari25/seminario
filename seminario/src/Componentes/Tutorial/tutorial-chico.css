@@ -3,5 +3,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    align-self: flex-end;
+    width: 90%;
+    position: absolute;
+    
+    left: 5%;
+}
+
+.wrapper-tutorial-chico-arriba {
+    top: 15%;
+}
+
+.wrapper-tutorial-chico-abajo {
+    top: 80%;
 }
