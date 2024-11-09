@@ -1,0 +1,36 @@
+.operar-boton {
+    width: 100%;
+    border-radius: 15px;
+    background-color: #F9A003;
+    border: 2px solid black;
+    color: black;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.operar-boton-regular {
+    background-color: #F9A003;
+    border: 2px solid black;
+    color: black;
+}
+
+.operar-boton-invertido {
+    background-color: #573523;
+    border: 2px solid #F9A003;
+    color: #F9A003;
+}
+
+.operar-boton-icono {
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+}
+
+.operar-boton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

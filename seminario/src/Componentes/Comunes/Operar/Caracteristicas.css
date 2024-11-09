@@ -1,0 +1,28 @@
+.caracteristicas-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.caracteristicas-titulo{
+    text-align: left;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.caracteristicas-puntaje p{
+    width: 50%;
+}
+
+.caracteristicas-puntaje{
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.1rem 0;
+}

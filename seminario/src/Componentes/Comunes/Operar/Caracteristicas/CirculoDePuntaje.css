@@ -1,0 +1,11 @@
+.circulo-de-puntaje{
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid black;
+}
+
+.relleno {
+    background-color: #F9A003;
+}

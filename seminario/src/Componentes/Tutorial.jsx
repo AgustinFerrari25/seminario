@@ -112,6 +112,11 @@ const Tutorial = () => {
             image: "../img/tutorial/tutorial-09.png",
         },
         {
+            text: (<>Siempre que estemos en la vista de Operar, vamos a ver nuestro valor líquido para saber cuánto dinero tenemos disponible para invertir.</>),
+            showImage: false,
+            image: "../img/tutorial/tutorial-09.png",
+        },
+        {
             text: (<>Esta tabla nos muestra nuestras <strong>tenencias</strong>, es decir, cuánto tenemos invertido en este <strong>activo</strong>. Nos muestra cuántas unidades tenemos, si aplica, y su <strong>cotización</strong> actual.</>),
             showImage: false,
             image: "../img/tutorial/tutorial-10.png",
@@ -139,21 +144,36 @@ const Tutorial = () => {
             'descripcion' : 'El plazo fijo permite invertir un monto específico por un plazo a partir de 30 días a cambio de un interés acordado previamente.',
             'cotizacion' : '20% anual',
             'variacionNominal' : 'N/A',
-            'variacionPorcentual' : '+2%'
+            'variacionPorcentual' : '+2%',
+            'caracteristicas' : {
+                'volatilidad' : 1,
+                'potencialDeCrecimiento' : 2,
+                'susceptibilidadAEventos' : 2
+            }
         },
         {
             'nombre' : 'Bono',
             'descripcion' : 'El bono representa una promesa de pago de parte de un Estado. La compra de un bono representa un préstamo al gobierno, y el dinero será devuelto con interés.',
             'cotizacion' : '25% anual',
             'variacionNominal' : 'N/A',
-            'variacionPorcentual' : '-3%'
+            'variacionPorcentual' : '-3%',
+            'caracteristicas' : {
+                'volatilidad' : 2,
+                'potencialDeCrecimiento' : 1,
+                'susceptibilidadAEventos' : 2
+            }
         },
         {
             'nombre' : 'Obligaciones Negociables',
             'descripcion' : 'Las obligaciones negociables son documentos que emiten empresas privadas. Comprar una ON equivale a hacer un préstamo a la organización, que devolverá el dinero con intereses una vez que haya pasado el plazo pactado.',
             'cotizacion' : '33% anual',
             'variacionNominal' : 'N/A',
-            'variacionPorcentual' : '+6%'
+            'variacionPorcentual' : '+6%',
+            'caracteristicas' : {
+                'volatilidad' : 1,
+                'potencialDeCrecimiento' : 1,
+                'susceptibilidadAEventos' : 3
+            }
         }
 
     ]
@@ -293,10 +313,10 @@ const Tutorial = () => {
                         mostrarDescripcionDelActivo={currentStep > 16}
                         mostrarCotizacion={currentStep > 17}
                         mostrarGraficoTendencias={currentStep > 18}
-                        mostrarCaracteristicas={currentStep>19}
-                        mostrarTenencias={currentStep>19}
-
-                        
+                        mostrarValorLiquido={currentStep>19}
+                        mostrarTenencias={currentStep>20}
+                        mostrarCaracteristicas={currentStep>21}
+                        mostrarBotonesOperar={currentStep > 22}
                     />
                     }
                      {/* Contenido de Texto tutorial */}
@@ -307,8 +327,8 @@ const Tutorial = () => {
                         manejarSiguiente={handleNext}
                         desactivarAnterior={currentStep===0}
                         desactivarSiguiente={(currentStep === tutorialSteps.length - 1 || currentStep === 14 || currentStep === 16)}
-                        abajo={currentStep > 9 && currentStep != 19}
-                        arriba={currentStep === 19}
+                        abajo={currentStep > 9 && currentStep != 19 && currentStep <= 22 }
+                        arriba={currentStep === 19 || currentStep > 22 }
                         />
                     </>
                  

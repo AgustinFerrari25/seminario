@@ -9,6 +9,11 @@
 .operar-columnas-lados {
     width: 20%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2%;
 }
 
 .operar-columna-central {
@@ -30,4 +35,12 @@
 .operar-descripcion-del-activo {
     text-align: justify;
     font-size: 0.9rem;
+}
+
+.operar-botones-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

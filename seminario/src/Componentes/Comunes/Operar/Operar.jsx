@@ -5,17 +5,23 @@ import GraficoTendencias from '../../ModoExperto/GraficoTendencias';
 import ValorInfo from "../../EstadoDeCuenta/ValorInfo";
 import Cotizacion from './Cotizacion';
 import Tenencias from './Tenencias';
+import Caracteristicas from "./Caracteristicas";
+import OperarBoton from "./OperarBoton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTags, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
 const Operar = ({
     mostrarMenuSeleccionActivos,
     mostrarDescripcionDelActivo,
     mostrarGraficoTendencias,
-    mostrarCaracteristicas,
     menuActivosCondicionDestacar,
     menuActivosOpcionADestacar,
     menuActivosFuncionNavegacion,
     mostrarCotizacion,
+    mostrarValorLiquido,
     mostrarTenencias,
+    mostrarCaracteristicas,
+    mostrarBotonesOperar,
     activoMostado,
     estadoDeCuenta
     }) => {
@@ -46,13 +52,32 @@ const Operar = ({
                     valorMinimo={15}
                 />
             </div>
-            <div className="operar-columnas-lados" style={{visibility: (mostrarCaracteristicas) ? 'visible' : 'hidden'}}>
+            <div className="operar-columnas-lados" style={{visibility: (mostrarValorLiquido) ? 'visible' : 'hidden'}}>
                 <ValorInfo titulo={'Valor líquido'} valor={estadoDeCuenta['valorLiquido']} pequenio={true}/>
                 <Tenencias
                     tenencias={estadoDeCuenta['portfolio'][activoMostado['nombre']]['tenencias']}
                     valorNominal={estadoDeCuenta['portfolio'][activoMostado['nombre']]['valorNominal']}
                     mostrar={mostrarTenencias}
                     />
+                <Caracteristicas
+                    mostrar={mostrarCaracteristicas}
+                    puntajes={activoMostado['caracteristicas']}
+                    />
+                <div className="operar-botones-wrapper" style={{visibility: (mostrarBotonesOperar) ? 'visible' : 'hidden'}}>
+                    <OperarBoton
+                        icono={faTags}
+                        funcionOperar={null}
+                        etiqueta={'Vender'}
+                        invertido={true}
+                        desactivado={true}
+                        />
+                    <OperarBoton
+                        icono={faCartShopping}
+                        funcionOperar={null}
+                        etiqueta={'Comprar'}
+                        desactivado={false}
+                        />
+                </div>
             </div>
         </div>
     )};
