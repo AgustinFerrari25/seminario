@@ -18,20 +18,20 @@
 .cotizacion-etiqueta {
     width: 30%;
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 0;
 }
 
 .cotizacion-separador {
     width: 100%;
-    height: 2px;
-    background-color: #888;
+    height: 0.15rem;
+    background-color: #000;
     margin: 0.25rem 0;
 }
 
 .cotizacion-valor {
     width: 30%;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
 }

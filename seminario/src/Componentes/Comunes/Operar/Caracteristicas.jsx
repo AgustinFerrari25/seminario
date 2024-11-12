@@ -21,7 +21,7 @@ const Caracteristicas = ({destacado, mostrar, puntajes}) => {
                     <CirculosDePuntajeContenedor puntaje={puntajes['potencialDeCrecimiento']}/>
             </div>
             <div className="caracteristicas-puntaje poppins-medium">
-                <p>Susceptibilidad <br/>a eventos</p>
+                <p>Susceptibilidad a eventos</p>
                 <CirculosDePuntajeContenedor puntaje={puntajes['susceptibilidadAEventos']}/>    
             </div>
         </div>

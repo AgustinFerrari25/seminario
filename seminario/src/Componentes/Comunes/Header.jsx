@@ -86,7 +86,7 @@ const Header = ({
 
                     {/* Estado de cuenta */}
                     <BotonNavegacionHeader
-                        funcionNavegacion={funcionEstadoDeCuenta}
+                        funcionNavegacion={() => funcionEstadoDeCuenta('estadoDeCuenta')}
                         mostrarBoton={(mostrarEstadoDeCuenta || mostrarTodosLosBotones)}
                         icono={faSackDollar}
                         explicacion={'Navegar a la vista de estado de cuenta.'}
@@ -96,7 +96,7 @@ const Header = ({
                     {/* Comprar activos / Operar */}
 
                     <BotonNavegacionHeader
-                        funcionNavegacion={funcionOperar}
+                        funcionNavegacion={() => funcionOperar('operar')}
                         mostrarBoton={(mostrarOperar || mostrarTodosLosBotones)}
                         icono={faMoneyBill}
                         explicacion={'Operar en el mercado.'}
@@ -106,7 +106,7 @@ const Header = ({
                     {/* Portfolio */}
 
                     <BotonNavegacionHeader
-                        funcionNavegacion={funcionPortfolio}
+                        funcionNavegacion={() => funcionPortfolio('portfolio')}
                         mostrarBoton={(mostrarPortfolio || mostrarTodosLosBotones)}
                         icono={faBriefcase}
                         explicacion={'Navegar a la vista de portfolio.'}
@@ -115,7 +115,7 @@ const Header = ({
 
                     {/* Noticias */}
                     <BotonNavegacionHeader
-                        funcionNavegacion={funcionNoticias}
+                        funcionNavegacion={() => funcionNoticias('noticias')}
                         mostrarBoton={(mostrarNoticias || mostrarTodosLosBotones)}
                         icono={faNewspaper}
                         explicacion={'Ver las últimas noticias.'}

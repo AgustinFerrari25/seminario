@@ -1,0 +1,35 @@
+.listado-de-activos{
+    overflow-y: scroll;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.listado-de-activos h2{
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.listado-de-activos-separador::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.listado-de-activos-separador::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+}
+
+.listado-de-activos-separador::-webkit-scrollbar-thumb {
+    background: #ffb800;
+    border-radius: 4px;
+}
+
+.listado-de-activos-separador::-webkit-scrollbar-thumb:hover {
+    background: #e0a800;
+}

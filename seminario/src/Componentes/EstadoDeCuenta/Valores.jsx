@@ -2,9 +2,12 @@ import React from "react";
 import ValorInfo from "./ValorInfo";
 import './Valores.css'
 
-const Valores = ({valorNeto, valorLiquido}) => {
+const Valores = ({valorNeto, valorLiquido, mostrar}) => {
     return (
-        <div className="valores-container">
+        <div
+            className="valores-container"
+            style={{visibility: (mostrar) ? 'visible' : 'hidden'}}
+            >
             <ValorInfo
                 titulo="Valor neto"
                 valor={valorNeto}

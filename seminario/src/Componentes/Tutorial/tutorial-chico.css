@@ -6,14 +6,13 @@
     align-self: flex-end;
     width: 90%;
     position: absolute;
-    
     left: 5%;
 }
 
 .wrapper-tutorial-chico-arriba {
-    top: 15%;
+    top: 12.5%;
 }
 
 .wrapper-tutorial-chico-abajo {
-    top: 80%;
+    top: 72.5%;
 }

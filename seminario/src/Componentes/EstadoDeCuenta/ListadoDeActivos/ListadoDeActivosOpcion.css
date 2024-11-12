@@ -1,0 +1,20 @@
+.listado-de-activos-opcion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.15rem solid black;
+    padding: 0rem 0.25rem 0.5rem
+}
+
+.listado-de-activos-opcion-etiqueta{
+    width: 40%;
+    text-align: left;
+    font-size: 1rem;
+}
+.listado-de-activos-opcion-valor-nominal{
+    width: 60%;
+    text-align: right;
+    font-size: 1.2rem;
+    color: #F9A003;
+}

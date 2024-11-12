@@ -14,11 +14,11 @@
 
 .caracteristicas-puntaje p{
     width: 50%;
+    font-size: 1rem;
 }
 
 .caracteristicas-puntaje{
     width: 100%;
-    font-size: 0.75rem;
     text-align: left;
     display: flex;
     flex-direction: row;

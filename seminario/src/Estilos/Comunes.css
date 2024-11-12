@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -46,6 +50,7 @@ body::before {
     max-height: 75px;
     margin: 0;
 }
+
 .play-area {
     flex: 1; /* Hace que ocupe todo el espacio que sobra */
     width: 90%;
@@ -137,46 +142,54 @@ body::before {
 
 /* Configuraciones responsive */
 body {
-    font-size: 0.75rem; /* Base font size */
+    font-size: 0.75rem; /* Tamaño base de tipografía */
   }
-  
-  /* For tablets (min-width: 600px) */
+
   @media (min-width: 600px) {
     body {
-      font-size: 0.9rem; /* Larger font size for tablets */
+      font-size: 0.9rem;
+    }
+
+    .wrapper-general {
+      min-height: 300px;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    body {
+      font-size: 1rem;
+    }
+    .wrapper-general {
+      min-height: 450px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body {
+      font-size: 1.15rem;
+    }
+    .wrapper-general {
+      min-height: 600px;
     }
   }
 
-  .wrapper-general {
-    min-width: 600px;
-    min-height: 300px;
-    max-height: 360px;
-}
-  
-  /* For desktops (min-width: 900px) */
-  @media (min-width: 900px) {
+  @media (min-width: 1600px) {
     body {
-      font-size: 1rem; /* Even larger font size for desktops */
+      font-size: 1.5rem;
     }
     .wrapper-general {
-      min-width: 900px;
-      min-height: 450px;
-      max-height: 540px;
+      min-height: 800px;
+    }
   }
-  }
-  
-  /* For large desktops (min-width: 1200px) */
-  @media (min-width: 1200px) {
+
+  @media (min-width: 1900px) {
     body {
-      font-size: 1.5rem; /* Largest font size for large desktops */
+      font-size: 1.75rem;
     }
     .wrapper-general {
-      min-width: 1200px;
-      min-height: 600px;
-      max-height: 720px;
+      min-height: 950px;
+    }
   }
-  }
-  
 
 /* Tipografías */
 

@@ -1,0 +1,14 @@
+.grafico-de-tenencias-wrapper {
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.grafico-de-tenencias-wrapper h2{
+    font-size: 1.5rem;
+    text-align: left;
+}

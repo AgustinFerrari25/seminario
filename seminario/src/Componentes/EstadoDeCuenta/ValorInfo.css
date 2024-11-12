@@ -35,10 +35,10 @@
 }
 
 .valor-info.pequenio .simbolo-pesos {
-  width: 3rem;
+  width: 4rem;
 }
 
 .valor-info.pequenio .valor-info-valor {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
 }

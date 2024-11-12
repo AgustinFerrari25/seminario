@@ -1,9 +1,9 @@
 .menu-seleccion-activos-opcion{
     color: #F9A003;
-    border-bottom: 2px solid black;
-    font-size: 1rem;
-    padding: 0.5rem 0;
+    border-bottom: 0.15rem solid black;
+    padding: 1rem 0;
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
 .utilma-opcion {
