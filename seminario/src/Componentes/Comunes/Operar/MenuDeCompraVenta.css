@@ -1,0 +1,112 @@
+.menu-de-compra-venta{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    background-color: #ffcd75;
+    border-radius: 2rem;
+    border: 0.25rem solid black;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.menu-de-compra-venta-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.menu-de-compra-venta-fila {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.menu-de-compra-venta-etiqueta {
+    width: 60%;
+}
+
+.menu-de-compra-venta-separador{
+    height: 0.1rem;
+    background-color: black;
+    margin: 0.5rem 0;
+}
+
+.menu-de-compra-venta-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-de-compra-venta-cantidad-a-comprar{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.menu-de-compra-venta-subtotal{
+    font-size: 0.75rem;
+}
+
+.menu-de-compra-venta-indicador-de-cantidad {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    width: 4rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #573523;
+    text-align: right;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.menu-de-compra-venta-indicador-de-cantidad::-webkit-outer-spin-button,
+.menu-de-compra-venta-indicador-de-cantidad::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.menu-de-compra-venta-wrapper-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.menu-de-compra-venta button{
+    width: 40%;
+    border-radius: 1rem;
+    background-color: #F9A003;
+    border: 0.15rem solid black;
+    color: black;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.menu-de-compra-venta-wrapper-botones button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.menu-de-compra-venta-confirmacion-de-operacion{
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}

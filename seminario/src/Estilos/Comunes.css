@@ -184,7 +184,7 @@ body {
 
   @media (min-width: 1900px) {
     body {
-      font-size: 1.75rem;
+      font-size: 2rem;
     }
     .wrapper-general {
       min-height: 950px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './Operar.css'
 import MenuSeleccionActivos from "./MenuSeleccionActivos/MenuSeleccionActivos";
 import GraficoTendencias from '../../ModoExperto/GraficoTendencias';
@@ -7,6 +7,7 @@ import Cotizacion from './Cotizacion';
 import Tenencias from './Tenencias';
 import Caracteristicas from "./Caracteristicas";
 import OperarBoton from "./OperarBoton";
+import MenuDeCompraVenta from "./MenuDeCompraVenta";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
@@ -14,19 +15,62 @@ const Operar = ({
     mostrarMenuSeleccionActivos,
     mostrarDescripcionDelActivo,
     mostrarGraficoTendencias,
+    
     menuActivosCondicionDestacar,
     menuActivosOpcionADestacar,
     menuActivosFuncionNavegacion,
+    
     mostrarCotizacion,
     mostrarValorLiquido,
     mostrarTenencias,
     mostrarCaracteristicas,
+    
     mostrarBotonesOperar,
-    activoMostado,
-    estadoDeCuenta
+    botonesOperarFuncionComprar,
+    botonesOperarFuncionVender,
+    
+    menuCompraVentaFuncionConfirmar,
+    menuCompraVentaOperacion,
+    
+    activoMostrado,
+    estadoDeCuenta,
+
     }) => {
+        const [mostrarMenuCompraVenta, setMostrarMenuCompraVenta] = useState(false);
+        const [operacion, setOperacion] = useState('');
+
+        const funcionComprar = () => {
+            setOperacion('Comprar');
+            setMostrarMenuCompraVenta(true);
+            if (typeof botonesOperarFuncionComprar === 'function') {
+                botonesOperarFuncionComprar();
+            }
+        }
+
+        const funcionVender = () => {
+            setOperacion('Vender');
+            setMostrarMenuCompraVenta(true);
+            if (typeof botonesOperarFuncionVender === 'function') {
+                botonesOperarFuncionVender();
+            }
+        }
+
+        const funcionCancelarCompraVenta = () => {
+            setOperacion('');
+            setMostrarMenuCompraVenta(false);
+        }
+
         return(
         <div className="wrapper-operar">
+            {mostrarMenuCompraVenta &&
+                <MenuDeCompraVenta
+                    operacion={operacion}
+                    funcionCancelar={funcionCancelarCompraVenta}
+                    funcionConfirmar={menuCompraVentaFuncionConfirmar}
+                    cotizacion={activoMostrado['cotizacion']}
+                    valorLiquido={estadoDeCuenta['valorLiquido']}
+                />
+                }
             <div className="operar-columnas-lados">
                 <MenuSeleccionActivos
                     mostrar={mostrarMenuSeleccionActivos}
@@ -37,14 +81,14 @@ const Operar = ({
             </div>
             <div className="operar-columna-central">
                 <div style={{visibility: (mostrarDescripcionDelActivo) ? 'visible' : 'hidden'}}>
-                    <div><h2 className="operar-nombre-del-activo poppins-black">{activoMostado['nombre']}</h2></div>
-                    <p className="poppins-medium operar-descripcion-del-activo">{activoMostado['descripcion']}</p>
+                    <div><h2 className="operar-nombre-del-activo poppins-black">{activoMostrado['nombre']}</h2></div>
+                    <p className="poppins-medium operar-descripcion-del-activo">{activoMostrado['descripcion']}</p>
                 </div>
                 <Cotizacion
                     mostrar={mostrarCotizacion}
-                    cotizacion={activoMostado['cotizacion']}
-                    variacionPorcentual={activoMostado['variacionPorcentual']}
-                    variacionNominal={activoMostado['variacionNominal']}
+                    cotizacion={activoMostrado['cotizacion']}
+                    variacionPorcentual={activoMostrado['variacionPorcentual']}
+                    variacionNominal={activoMostrado['variacionNominal']}
                     />
                 <GraficoTendencias
                     mostrar={mostrarGraficoTendencias}
@@ -55,25 +99,25 @@ const Operar = ({
             <div className="operar-columnas-lados" style={{visibility: (mostrarValorLiquido) ? 'visible' : 'hidden'}}>
                 <ValorInfo titulo={'Valor líquido'} valor={estadoDeCuenta['valorLiquido']} pequenio={true}/>
                 <Tenencias
-                    tenencias={estadoDeCuenta['portfolio'][activoMostado['nombre']]['tenencias']}
-                    valorNominal={estadoDeCuenta['portfolio'][activoMostado['nombre']]['valorNominal']}
+                    tenencias={estadoDeCuenta['portfolio'][activoMostrado['nombre']]['tenencias']}
+                    valorNominal={estadoDeCuenta['portfolio'][activoMostrado['nombre']]['valorNominal']}
                     mostrar={mostrarTenencias}
                     />
                 <Caracteristicas
                     mostrar={mostrarCaracteristicas}
-                    puntajes={activoMostado['caracteristicas']}
+                    puntajes={activoMostrado['caracteristicas']}
                     />
                 <div className="operar-botones-wrapper" style={{visibility: (mostrarBotonesOperar) ? 'visible' : 'hidden'}}>
                     <OperarBoton
                         icono={faTags}
-                        funcionOperar={null}
+                        funcionOperar={botonesOperarFuncionVender}
                         etiqueta={'Vender'}
                         invertido={true}
                         desactivado={true}
                         />
                     <OperarBoton
                         icono={faCartShopping}
-                        funcionOperar={null}
+                        funcionOperar={funcionComprar}
                         etiqueta={'Comprar'}
                         desactivado={false}
                         />

@@ -27,6 +27,7 @@ const Tutorial = () => {
     const [mostrarOperar, setMostrarOperar] = useState(false);
     const [activoMostrado, setActivoMostrado] = useState(0);
     const [seccionMostrada, setSeccionMostrada] = useState('');
+    const [estadoDeCuenta, setEstadoDeCuenta] = useState(estadoDeCuentaTutorial);
     
     const manejarCambioDeActivo = (indice) => {
         if (indice === 0 && pasoDeTutorialActual === 16) {
@@ -37,6 +38,49 @@ const Tutorial = () => {
 
     const manejarCambioDeSeccion = (seccion) => {
         setSeccionMostrada(seccion);
+    };
+
+    const manejarCompraDeActivo = (cantidadComprada) => {
+        // Me guardo el activo que se está mostrando para simplificar las cosas
+        const activoComprado = activosTutorial[activoMostrado];
+
+        // Chequeo que la cantidad sea válida
+        const cantidadNumerica = parseFloat(cantidadComprada); 
+        if (isNaN(cantidadNumerica) || cantidadNumerica <= 0) {
+            alert('Por favor, ingrese una cantidad válida.');
+            return;
+        }
+
+        // Me guardo el valor que representa la compra para simplificar las cosas
+        const valorTotal = cantidadNumerica * activoComprado.cotizacion;
+
+        // Actualizamos el porfolio dentro de estadoDeCuenta
+        setEstadoDeCuenta(prevEstado => {
+            // Nuevo portfolio basado en el anterior
+            const nuevoPortfolio = { ...prevEstado.portfolio };
+            const nuevoValorLiquido = prevEstado.valorLiquido - valorTotal;
+
+            if (nuevoPortfolio[activoComprado.nombre]) {
+                // Si ya existe el activo, lo actualizo
+                nuevoPortfolio[activoComprado.nombre] = {
+                    tenencias: nuevoPortfolio[activoComprado.nombre].tenencias + cantidadNumerica,
+                    valorNominal: nuevoPortfolio[activoComprado.nombre].valorNominal + valorTotal
+                };
+            } else {
+                // Si no existe, lo agrego
+                nuevoPortfolio[activoComprado.nombre] = {
+                    tenencias: cantidadNumerica,
+                    valorNominal: valorTotal
+                };
+            }
+
+            // Devolver el estadoDeCuenta actualizado
+            return {
+                ...prevEstado,
+                valorLiquido: nuevoValorLiquido,
+                portfolio: nuevoPortfolio
+            };
+        });
     };
 
     const manejarSiguiente = () => {
@@ -102,7 +146,7 @@ const Tutorial = () => {
                     {seccionMostrada === 'estadoDeCuenta' && (
                     
                         <EstadoDeCuenta
-                            estadoDeCuenta={estadoDeCuentaTutorial}
+                            estadoDeCuenta={estadoDeCuenta}
                             mostrarValores={pasoDeTutorialActual>10}
                             mostrarListadoDeActivos={pasoDeTutorialActual>21}
                             mostrarGraficoDeTenencias={pasoDeTutorialActual>21}
@@ -112,8 +156,8 @@ const Tutorial = () => {
                     
                     {seccionMostrada === 'operar' && (
                     <Operar
-                        activoMostado={activosTutorial[activoMostrado]}
-                        estadoDeCuenta={estadoDeCuentaTutorial}
+                        activoMostrado={activosTutorial[activoMostrado]}
+                        estadoDeCuenta={estadoDeCuenta}
 
                         mostrarMenuSeleccionActivos={pasoDeTutorialActual >= 14}
                         menuActivosCondicionDestacar={pasoDeTutorialActual===16}
@@ -127,6 +171,8 @@ const Tutorial = () => {
                         mostrarTenencias={pasoDeTutorialActual>20}
                         mostrarCaracteristicas={pasoDeTutorialActual>21}
                         mostrarBotonesOperar={pasoDeTutorialActual > 22}
+
+                        menuCompraVentaFuncionConfirmar={manejarCompraDeActivo}
                     />
                     )}
 

@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 5%;
+    gap: 1rem;
 }
 
 .operar-columna-central {
@@ -23,12 +23,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: start;
-    gap: 5%;
+    gap: 1.25rem;
 }
 
 .operar-nombre-del-activo {
     text-align: left;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: 1%;
 }
 
