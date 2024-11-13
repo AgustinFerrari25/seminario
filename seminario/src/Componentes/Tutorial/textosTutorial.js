@@ -125,6 +125,54 @@ const textosTutorial = [
     {
         text: (<>Hagamos clic en <strong>Comprar</strong> para hacer nuestra primera inversión.</>),
     },
+            
+        text: (<>Para hacer nuestra compra de plazo fijo, necesitamos definir dos cosas importantes: la <strong>cantidad de dinero</strong> que vamos a invertir y el <strong>plazo</strong> o tiempo que durará nuestra inversión.</>),
+    },
+    {
+        text: (<>Primero, definiremos el <strong>plazo</strong> de tu inversión. Este plazo representa el tiempo que tu dinero estará invertido antes de que puedas retirarlo con los intereses generados. Generalmente, mientras más largo sea el plazo, mayor será la ganancia.</>),
+    },
+    {
+        text: (<>Ahora, ingresamos la <strong>cantidad de dinero</strong> que vamos a invertir en este plazo fijo. Recordá que este dinero estará “bloqueado” hasta que el plazo finalice, así que es importante que solo uses el dinero que no necesitas inmediatamente.</>),
+    },
+    {
+        text: (<>Si todo está correcto, hace clic en <strong>Confirmar</strong> para realizar tu inversión.</>),
+    },
+    {
+        text: (<>¡Felicitaciones! Invertiste en un plazo fijo, una de las formas más seguras de proteger y hacer crecer tu dinero.</>),
+    },
+    {
+        text: (<>Recordá que al vencer el plazo, vas a recibir el monto invertido más el <strong>interés</strong> generado. Los plazos fijos son solo el comienzo del mundo de las inversiones.</>),
+    },
+    {
+        text: (<>Ahora que realizaste tu primera inversión en un plazo fijo, vamos a volver a la vista de <strong>estado de cuenta</strong>.</>),
+    },
+    {
+        text: (<>En esta vista podrás ver un gráfico que muestra tus <strong>tenencias por activo</strong>. En este momento solo visualizas el activo "plazos fijos", ya que es la única inversión que has realizado hasta ahora.</>),
+    },
+    {
+        text: (<>Debajo del gráfico, también verás una lista de activos en tu portafolio. A medida que realices otras inversiones, podrás observar cómo se distribuyen tus tenencias entre diferentes tipos de activos.</>),
+    },
+    {
+        text: (<>Para avanzar en el juego, haz clic en <strong>Terminar semana</strong>. Esta acción marca el cierre de tus decisiones de inversión de la semana y permite avanzar en el tiempo.</>),
+    },
+    {
+        text: (<>Las lecciones en esta academia están divididas en semanas. Cada semana podrás tomar decisiones de inversión según los activos que tengas disponibles.</>),
+    },
+    {
+        text: (<>Al finalizar cada semana, el tiempo avanzará, lo que significa que los valores de los activos pueden cambiar, y tus inversiones evolucionarán. Esto te permitirá observar el rendimiento de tus decisiones y aprender cómo el mercado afecta a cada activo.</>),
+    },
+    {
+        text: (<>A medida que avance el tiempo y aprendas sobre nuevos activos, podrás tomar decisiones estratégicas basadas en cómo cambien los valores de tus inversiones.</>),
+    },
+    {
+        text: (<>¡Por ultimo! Para superar cada lección, tendrás un <strong>objetivo de valor neto</strong> que deberás alcanzar o superar. Recordá que el valor neto representa el dinero que tenes disponible y la cotización de todos tus activos, y te servirá como indicador de tus logros financieros en cada semana.</>),
+    },
+    {
+        text: (<>A medida que tomes decisiones y avances en las semanas, podrás ver cómo se acerca tu valor neto al objetivo de la lección.</>),
+    },
+    {
+        text: (<>¡Con esto, finalizamos el tutorial! Estás listo para empezar tu camino como inversor. ¡Mucho éxito!</>),
+    },
 ];
 
 export default textosTutorial;
