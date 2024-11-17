@@ -26,10 +26,15 @@ const Operar = ({
     
     mostrarBotonesOperar,
     botonesOperarFuncionComprar,
+    destacarBotonesOperarComprar,
+    desactivarBotonesOperarComprar,
     botonesOperarFuncionVender,
     
     menuCompraVentaFuncionConfirmar,
+    menuCompraVentaDesactivarConfirmar,
     menuCompraVentaFuncionCancelar,
+    menuCompraVentaDesactivarCancelar,
+    menuCompraVentaDestacarIndicadorDeCantidad,
     
     activoMostrado,
     estadoDeCuenta,
@@ -68,9 +73,12 @@ const Operar = ({
                 <MenuDeCompraVenta
                     operacion={operacion}
                     funcionCancelar={funcionCancelarCompraVenta}
+                    forzarDesactivarCancelar={menuCompraVentaDesactivarCancelar}
                     funcionConfirmar={menuCompraVentaFuncionConfirmar}
+                    forzarDesactivarConfirmar={menuCompraVentaDesactivarConfirmar}
                     cotizacion={activoMostrado['cotizacion']}
                     valorLiquido={estadoDeCuenta['valorLiquido']}
+                    destacarIndicadorDeCantidad={menuCompraVentaDestacarIndicadorDeCantidad}
                 />
                 }
             <div className="operar-columnas-lados">
@@ -121,7 +129,8 @@ const Operar = ({
                         icono={faCartShopping}
                         funcionOperar={funcionComprar}
                         etiqueta={'Comprar'}
-                        desactivado={false}
+                        destacado={destacarBotonesOperarComprar}
+                        desactivado={desactivarBotonesOperarComprar}
                         />
                 </div>
             </div>

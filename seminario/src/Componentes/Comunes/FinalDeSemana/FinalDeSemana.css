@@ -49,3 +49,22 @@
 .final-de-semana-botones button:hover:not(:disabled) {
     background-color: #e0a800;
 }
+
+.final-de-semana-objetivo{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10%;
+}
+
+.final-de-semana-objetivo-evolucion-valores{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}

@@ -16,20 +16,38 @@
     text-align: left;
 }
 
-.listado-de-activos-separador::-webkit-scrollbar {
+.listado-de-activos::-webkit-scrollbar {
     width: 1rem;
 }
 
-.listado-de-activos-separador::-webkit-scrollbar-track {
+.listado-de-activos::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
 }
 
-.listado-de-activos-separador::-webkit-scrollbar-thumb {
+.listado-de-activos::-webkit-scrollbar-thumb {
     background: #ffb800;
     border-radius: 4px;
 }
 
-.listado-de-activos-separador::-webkit-scrollbar-thumb:hover {
+.listado-de-activos::-webkit-scrollbar-thumb:hover {
     background: #e0a800;
+}
+
+.listado-de-activos-total-invertido{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0 0.2rem;
+}
+
+.listado-de-activos-total-etiqueta{
+    font-size: 1rem;
+}
+
+.listado-de-activos-total-valor{
+    font-size: 1.5rem;
+    color: #F9A003;
 }

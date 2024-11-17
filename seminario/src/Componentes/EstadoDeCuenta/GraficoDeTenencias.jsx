@@ -14,7 +14,7 @@ const GraficoDeTenencias = ({ datos, mostrar, destacar }) => {
     values: Object.values(datos).map(activo => activo.valorNominal),
     textinfo: 'label+value+percent entry',
     marker: {
-      colors:['#573523','#F9A003','#437C90', '#000000','#F3E491']
+      colors:['#437C90','#573523','#F9A003','#000000','#F3E491']
     },
   };
 
@@ -24,7 +24,7 @@ const GraficoDeTenencias = ({ datos, mostrar, destacar }) => {
       family: 'Poppins, sans-serif',
       weight: 900,
       style: 'normal',
-      size: '1rem'
+      size: '1.5rem'
     },
     margin: {
       l: 0,

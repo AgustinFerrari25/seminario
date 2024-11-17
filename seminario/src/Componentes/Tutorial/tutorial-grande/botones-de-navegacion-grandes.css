@@ -7,6 +7,10 @@
 }
 
 .botones-de-navegacion button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
     padding: 15px 25px;
     background-color: #ffb800;
     border: 2px solid #000;

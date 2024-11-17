@@ -27,6 +27,14 @@
     font-size: 2.5rem;
 }
 
+.valor-info-valor-positivo {
+  color: #79B473;
+}
+
+.valor-info-valor-negativo {
+  color: #9f5656;
+}
+
 /* Versión chiquita de la cotización para la vista de operar */
 
 .valor-info.pequenio .valor-info-titulo {

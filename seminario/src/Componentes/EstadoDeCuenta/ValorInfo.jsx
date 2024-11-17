@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import "./ValorInfo.css";
 import "../../Estilos/Comunes.css";
+import NumeroAnimado from '../Comunes/NumeroAnimado';
 import useExplicacionEnHover from '../../hooks/explicacionEnHover';
 
-const ValorInfo = ({ titulo, valor, explicacion, pequenio, mostrar}) => {
+const ValorInfo = ({ titulo, valor, explicacion, pequenio, mostrar, duracionDeAnimacion, incluirSigno}) => {
 
     const { textoExplicacion, mostrarExplicacion, ocultarExplicacion } = useExplicacionEnHover();
 
+    const valorEsPositivo = valor >= 0;
+    const signo = valorEsPositivo ? '+' : '';
+    const estiloSegunSigno = valorEsPositivo ? 'valor-info-valor-positivo' : 'valor-info-valor-negativo';
+    const valorSinSigno = Math.abs(valor).toFixed(2);
 
     return (
         <div
@@ -19,7 +24,15 @@ const ValorInfo = ({ titulo, valor, explicacion, pequenio, mostrar}) => {
                             onMouseLeave={ocultarExplicacion}
                             >
                 <img src={require('../../img/simbolo-pesos.png')} alt="Símbolo de pesos" className="simbolo-pesos" />
-                <p className="valor-info-valor poppins-black">${valor.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p>
+                <p className={`valor-info-valor poppins-black ${incluirSigno ? estiloSegunSigno : ''}`}>
+                    {incluirSigno ? signo : ''}
+                    {valorEsPositivo ? '' : '-'}
+                    $
+                    <NumeroAnimado
+                        valor={valorSinSigno}
+                        mostrar={mostrar}
+                        duracionDeAnimacion={duracionDeAnimacion}/>
+                    </p>
                 {textoExplicacion &&
                     (<div className="explicacion-en-hover">
                         <p>{textoExplicacion}</p>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from 'react-router-dom';
 import '../Estilos/EstilosTutorial.css'
 import '../Estilos/Comunes.css'
 
@@ -23,6 +23,7 @@ import TutorialGrande from "./Tutorial/tutorial-grande.jsx";
 import TutorialChico from "./Tutorial/tutorial-chico.jsx";
 
 const Tutorial = () => {
+
     const [pasoDeTutorialActual, setPasoDeTutorialActual] = useState(0);
     const [modoTutorialChico, setModoTutorialChico] = useState(false);
     const [mostrarOperar, setMostrarOperar] = useState(false);
@@ -31,6 +32,8 @@ const Tutorial = () => {
     const [estadoDeCuenta, setEstadoDeCuenta] = useState(estadoDeCuentaTutorial);
     const [estadoDeCuentaNuevo, setEstadoDeCuentaNuevo] = useState(estadoDeCuentaTutorial);
     const [etapaFinalDeSemana, setEtapaFinalDeSemana] = useState('cotizaciones');
+
+    const navigate = useNavigate();
     
     const manejarCambioDeActivo = (indice) => {
         if (indice === 0 && pasoDeTutorialActual === 16) {
@@ -100,7 +103,7 @@ const Tutorial = () => {
 
             const nuevoValorNeto = Object.values(nuevoPortfolio).reduce((accumulator, item) => {
                 return accumulator + item.valorNominal; // Sum the valorNominal
-            }, 0);
+            }, 0) + estadoDeCuentaAnterior.valorLiquido;
 
             // Devolver el estadoDeCuenta actualizado
             return {
@@ -113,7 +116,8 @@ const Tutorial = () => {
 
     const manejarSiguiente = () => {
         if (pasoDeTutorialActual < textosTutorial.length - 1) {
-            setPasoDeTutorialActual(pasoDeTutorialActual + 1);
+            const nuevoPasoDeTutorial = pasoDeTutorialActual + 1;
+            setPasoDeTutorialActual(nuevoPasoDeTutorial);
 
 
             if (pasoDeTutorialActual === 9) {
@@ -148,6 +152,10 @@ const Tutorial = () => {
                 setEtapaFinalDeSemana('objetivo');
             }
 
+            if(pasoDeTutorialActual === 42) {
+                setModoTutorialChico(false);
+            }
+            console.log(`Tutorial avanzado. Paso actual: ${nuevoPasoDeTutorial}`);
         }
     };
 
@@ -157,6 +165,7 @@ const Tutorial = () => {
             if (pasoDeTutorialActual === 10) {
                 setModoTutorialChico(false);
             }
+            console.log(`Tutorial retrocedido. Paso actual: ${pasoDeTutorialActual}`);
         }
     };
 
@@ -223,9 +232,16 @@ const Tutorial = () => {
                         mostrarTenencias={pasoDeTutorialActual>20}
                         mostrarCaracteristicas={pasoDeTutorialActual>21}
                         mostrarBotonesOperar={pasoDeTutorialActual > 22}
+                        destacarBotonesOperarComprar={pasoDeTutorialActual === 24}
+                        desactivarBotonesOperarComprar={pasoDeTutorialActual < 24}
+                        
 
                         menuCompraVentaFuncionConfirmar={manejarCompraDeActivo}
-                        menuCompraVentaFuncionCancelar={pasoDeTutorialActual == 31 ? manejarSiguiente : null}
+                        menuCompraVentaDesactivarConfirmar={pasoDeTutorialActual < 30}
+                        menuCompraVentaFuncionCancelar={pasoDeTutorialActual === 31 ? manejarSiguiente : null}
+                        menuCompraVentaDesactivarCancelar={pasoDeTutorialActual < 31}
+                        menuCompraVentaDestacarIndicadorDeCantidad={pasoDeTutorialActual === 27}
+
                         botonesOperarFuncionComprar={pasoDeTutorialActual === 24 ? manejarSiguiente : null}
                     />
                     )}
@@ -238,7 +254,7 @@ const Tutorial = () => {
                             mostrarPortfolioActual={pasoDeTutorialActual > 37}
                             mostrarPortfolioNuevo={pasoDeTutorialActual > 38}
                             estadoDeCuentaNuevo={estadoDeCuentaNuevo}
-                            valorObjetivo={1000}
+                            valorObjetivo={1500}
                             etapa={etapaFinalDeSemana}
                         />
                     )}
@@ -282,8 +298,11 @@ const Tutorial = () => {
                             contenido={textosTutorial[pasoDeTutorialActual].text}
                             manejarAnterior={manejarAnterior}
                             manejarSiguiente={manejarSiguiente}
+                            manejarFinalizarLeccion={() => navigate(-1)}
                             desactivarAnterior={pasoDeTutorialActual===0}
                             desactivarSiguiente={pasoDeTutorialActual === textosTutorial.length - 1}
+                            habilitarFinalizarLeccion={pasoDeTutorialActual === textosTutorial.length - 1}
+
                         />
 
                         {pasoDeTutorialActual === 37 && (

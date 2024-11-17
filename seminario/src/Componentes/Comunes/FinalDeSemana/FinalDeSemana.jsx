@@ -3,7 +3,7 @@ import './FinalDeSemana.css';
 import ValorInfo from "../../EstadoDeCuenta/ValorInfo";
 import ListadoDeActivos from "../../EstadoDeCuenta/ListadoDeActivos/ListadoDeActivos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightLong, faChevronLeft, faChevronRight, faMinus, faEquals } from "@fortawesome/free-solid-svg-icons";
 
 const FinalDeSemana = ({
     estadoDeCuentaAnterior,
@@ -21,6 +21,8 @@ const FinalDeSemana = ({
     etapa
     }) => {
 
+        const variacionEnValorNeto = estadoDeCuentaNuevo['valorNeto'] - estadoDeCuentaAnterior['valorNeto'];
+        const diferenciaRespectoDeObjetivo = estadoDeCuentaNuevo['valorNeto'] - valorObjetivo;
 
         return (
             
@@ -58,41 +60,70 @@ const FinalDeSemana = ({
                                 titulo="Valor neto"
                                 valor={estadoDeCuentaNuevo['valorNeto']}
                                 mostrar={mostrarEstadoDeCuentaNuevo}
+                                duracionDeAnimacion={1000}
                             />
                             <ListadoDeActivos
                                 mostrar={mostrarPortfolioNuevo}
                                 portfolio={estadoDeCuentaNuevo['portfolio']}
                                 titulo={'Cotizaciones'}
+                                duracionDeAnimacion={1500}
                             />
                         </div>
                     </div>
 
                 )}
 
-                {etapa === 'objetivo' && (
+                {/* Evolución de objetivo */}
 
-                <div className="final-de-semana-columnas">
-                    
-                    {/* Cotizaciones antes */}
-                    
-                    <div className="final-de-semana-columna">
-                        <h3 style={{visibility: (mostrarEstadoDeCuentaNuevo) ? 'visible' : 'hidden'}}>Valores actuales</h3>
+                {etapa === 'objetivo' && (
+                
+                <div className="final-de-semana-objetivo">
+                    <h3>Progreso del objetivo</h3>
+                    <div className="final-de-semana-objetivo-evolucion-valores">
                         <ValorInfo
-                            titulo="Valor neto"
-                            valor={estadoDeCuentaNuevo['valorNeto']}
-                            mostrar={mostrarEstadoDeCuentaActual}
-                        />
+                                titulo="Valor neto anterior"
+                                valor={estadoDeCuentaAnterior['valorNeto']}
+                                mostrar={mostrarEstadoDeCuentaActual}
+                                duracionDeAnimacion={500}
+                            />
+                        <FontAwesomeIcon icon={faMinus}/>
+                        <ValorInfo
+                                titulo="Nuevo valor neto"
+                                valor={estadoDeCuentaNuevo['valorNeto']}
+                                mostrar={mostrarEstadoDeCuentaActual}
+                                duracionDeAnimacion={500}
+                            />
+                        <FontAwesomeIcon icon={faEquals}/>
+                        <ValorInfo
+                                titulo="Variación"
+                                valor={variacionEnValorNeto}
+                                mostrar={mostrarEstadoDeCuentaActual}
+                                duracionDeAnimacion={500}
+                                incluirSigno={true}
+                            />
                     </div>
-                    
-                    {/* Cotizaciones después */}
-                    
-                    <div className="final-de-semana-columna">
-                        <h3 style={{visibility: (mostrarEstadoDeCuentaActual) ? 'visible' : 'hidden'}}>Nuevos valores</h3>
+                    <div className="final-de-semana-objetivo-evolucion-valores">
                         <ValorInfo
-                            titulo="Valor objetivo"
-                            valor={valorObjetivo}
-                            mostrar={mostrarEstadoDeCuentaNuevo}
-                        />
+                                titulo="Nuevo valor neto"
+                                valor={estadoDeCuentaNuevo['valorNeto']}
+                                mostrar={mostrarEstadoDeCuentaActual}
+                                duracionDeAnimacion={1000}
+                            />
+                        <FontAwesomeIcon icon={faMinus}/>
+                        <ValorInfo
+                                titulo="Valor objetivo"
+                                valor={valorObjetivo}
+                                mostrar={mostrarEstadoDeCuentaNuevo}
+                                duracionDeAnimacion={1000}
+                            />
+                        <FontAwesomeIcon icon={faEquals}/>
+                        <ValorInfo
+                                titulo="Diferencia respecto de objetivo"
+                                valor={diferenciaRespectoDeObjetivo}
+                                mostrar={mostrarEstadoDeCuentaNuevo}
+                                duracionDeAnimacion={2000}
+                                incluirSigno={true}
+                            />
                     </div>
                 </div>
 

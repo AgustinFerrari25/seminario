@@ -3,11 +3,18 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faFlagCheckered } from "@fortawesome/free-solid-svg-icons";
 import './botones-de-navegacion-grandes.css'
 import '../../../Estilos/Comunes.css'
 
-const BotonesDeNavegacionGrandes = ({ manejarAnterior, manejarSiguiente, desactivarAnterior, desactivarSiguiente }) => (
+const BotonesDeNavegacionGrandes = ({
+    manejarAnterior,
+    manejarSiguiente,
+    desactivarAnterior,
+    desactivarSiguiente,
+    manejarFinalizarLeccion,
+    habilitarFinalizarLeccion,
+  }) => (
     <div className="botones-de-navegacion poppins-black">
         <button
             onClick={manejarAnterior}
@@ -15,12 +22,20 @@ const BotonesDeNavegacionGrandes = ({ manejarAnterior, manejarSiguiente, desacti
         >
             <FontAwesomeIcon icon={faChevronLeft} /> Anterior
         </button>
+        {habilitarFinalizarLeccion ? (
+            <button
+            onClick={manejarFinalizarLeccion}
+        >
+             <FontAwesomeIcon style={{fontSize: '1.25rem'}} icon={faFlagCheckered} /> Finalizar Lección
+        </button>
+        ) : (
         <button
             onClick={manejarSiguiente}
             disabled={desactivarSiguiente}
         >
             Siguiente <FontAwesomeIcon icon={faChevronRight} />
         </button>
+        )}
     </div>
 );
 

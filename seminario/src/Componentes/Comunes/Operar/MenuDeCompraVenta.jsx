@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './MenuDeCompraVenta.css'
 
 const MenuDeCompraVenta = ({
@@ -7,13 +7,22 @@ const MenuDeCompraVenta = ({
     valorLiquido,
     funcionCancelar,
     funcionConfirmar,
+    forzarDesactivarConfirmar,
+    forzarDesactivarCancelar,
+    destacarIndicadorDeCantidad,
 }) => {
 
     const [cantidad, setCantidad] = useState(1);
     const [saldoLuegoDeLaCompra, setSaldoLuegoDeLaCompra] = useState('');
     const [subtotal, setSubtotal] = useState(0);
-    const [desactivarComprar, setDesactivarComprar] = useState(false);
+    const [desactivarComprar, setDesactivarComprar] = useState(forzarDesactivarConfirmar);
     const [operacionConfirmada, setOperacionConfirmada] = useState(false);
+
+    useEffect(() => {
+        if(!forzarDesactivarConfirmar){
+            setDesactivarComprar(saldoLuegoDeLaCompra < 0);
+        }
+    }, [forzarDesactivarConfirmar]);
 
     const calcularSubtotalYSaldo = () => {
         const cotizacionNumerica = parseFloat(cotizacion);
@@ -34,7 +43,10 @@ const MenuDeCompraVenta = ({
 
         setSubtotal(nuevoSubtotal);
         setSaldoLuegoDeLaCompra(nuevoSaldoDespuesDeLaCompra);
-        setDesactivarComprar(nuevoSaldoDespuesDeLaCompra < 0);
+        if(!forzarDesactivarConfirmar){
+            setDesactivarComprar(nuevoSaldoDespuesDeLaCompra < 0);
+        }
+        
     };
 
     const confirmarVenta = () => {
@@ -64,18 +76,20 @@ const MenuDeCompraVenta = ({
                 <div className="menu-de-compra-venta-separador"></div>
                 <div className="menu-de-compra-venta-cantidad-a-comprar">
                     <p className="menu-de-compra-venta-etiqueta">Cantidad a {operacion.toLowerCase()}:</p>
-                    <input
-                        className="menu-de-compra-venta-indicador-de-cantidad poppins-bold"
-                        type="number"
-                        placeholder="1"
-                        value={cantidad}
-                        onChange={(e) => {
-                            const nuevoValor = e.target.value;
-                            setCantidad(nuevoValor);
-                            calcularSubtotalYSaldo();
-                        }}
-                        onBlur={calcularSubtotalYSaldo}
-                        />
+                    <div className={`${destacarIndicadorDeCantidad ? 'destacado' : ''}`}>
+                        <input
+                            className='menu-de-compra-venta-indicador-de-cantidad poppins-bold'
+                            type="number"
+                            placeholder="1"
+                            value={cantidad}
+                            onChange={(e) => {
+                                const nuevoValor = e.target.value;
+                                setCantidad(nuevoValor);
+                                calcularSubtotalYSaldo();
+                            }}
+                            onBlur={calcularSubtotalYSaldo}
+                            />
+                    </div>
                 </div>
                 <div className="menu-de-compra-venta-fila menu-de-compra-venta-subtotal">
                     <p className="menu-de-compra-venta-etiqueta">Subtotal: </p>
@@ -93,7 +107,7 @@ const MenuDeCompraVenta = ({
                     <p>${saldoLuegoDeLaCompra.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p>
                 </div>
                 <div className="menu-de-compra-venta-wrapper-botones">
-                    <button className="poppins-bold" onClick={funcionCancelar}>Cancelar</button>
+                    <button disabled={forzarDesactivarCancelar} className="poppins-bold" onClick={funcionCancelar}>Cancelar</button>
                     <button disabled={desactivarComprar} className="poppins-bold" onClick={confirmarVenta}>Confirmar</button>
                 </div>
             </>)}

@@ -119,7 +119,7 @@ const textosTutorial = [
     },
     {
         text: (<>Finalmente, tenemos los botones de compra y venta del activo. Para <strong>plazo fijo </strong> 
-        en particular, no aplica la venta y por eso lo vemos oscurecido.
+        en particular, no aplica la venta y por eso no vamos a usarlo en esta lección.
         </>),
     },
     {
@@ -162,7 +162,7 @@ const textosTutorial = [
         text: (<>Ahora que realizaste tu primera inversión en un plazo fijo, vamos a volver a la vista de <strong>estado de cuenta</strong>.</>),
     },
     {
-        text: (<>Ahora que ya has invertido, podemos ver un gráfico que muestra tus <strong>tenencias por activo</strong>. En este momento solo visualizas el activo "plazos fijos", ya que es la única inversión que has realizado hasta ahora.</>),
+        text: (<>Ahora que ya has invertido, podemos ver un gráfico que muestra tus <strong>tenencias por activo</strong>. En este momento solo visualizas el activo "plazo fijo", ya que es la única inversión que has realizado hasta ahora.</>),
     },
     {
         text: (<>Junto al gráfico, también verás una lista de activos en tu portfolio. A medida que realices otras inversiones, podrás observar cómo se distribuyen tus tenencias entre diferentes tipos de activos.</>),

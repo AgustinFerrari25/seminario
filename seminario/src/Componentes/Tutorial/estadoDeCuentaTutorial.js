@@ -3,16 +3,16 @@ const estadoDeCuentaTutorial = {
     'valorLiquido' : 1000,
     'portfolio' : {
         'Plazo fijo' : {
-            'tenencias' : 1000,
-            'valorNominal' : 5000
+            'tenencias' : 0,
+            'valorNominal' : 0
         },
         'Bono' : {
-            'tenencias' : 2000,
-            'valorNominal' : 3000,
+            'tenencias' : 0,
+            'valorNominal' : 0,
         },
         'Obligaciones Negociables' : {
-            'tenencias' : 2000,
-            'valorNominal' : 2000
+            'tenencias' : 0,
+            'valorNominal' : 0
         }
 
     }
