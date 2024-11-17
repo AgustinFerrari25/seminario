@@ -21,14 +21,14 @@ const MenuSeleccionActivosOpcion = ({
                     ${ultimaOpcion ? 'utilma-opcion' : ''}
                     menu-seleccion-activos-opcion
                     explicado-en-hover
-                    ${destacar ? 'destacado' : ''}
+                    
                     ${seleccionada ? 'opcion-seleccionada' : ''}
                     `}
                 onClick={funcionNavegacion}
                 onMouseEnter={() => mostrarExplicacion(explicacion)}
                 onMouseLeave={ocultarExplicacion}
                 >
-                <p className="poppins-bold">{etiqueta}</p>
+                <p className={`poppins-bold ${destacar ? 'destacado' : ''}`}>{etiqueta}</p>
                 {textoExplicacion &&
                     (<div className="explicacion-en-hover">
                         <p>{textoExplicacion}</p>

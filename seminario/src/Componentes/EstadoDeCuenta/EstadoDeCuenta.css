@@ -15,5 +15,14 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 5%;
+    gap: 3%;
+}
+
+.estado-de-cuenta-tenencias-listado-y-boton{
+    display: flex;
+    width: 20%;
+    height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
 }

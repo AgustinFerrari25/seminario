@@ -1,0 +1,27 @@
+.boton-terminar-semana{
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #F9A003;
+    border: 0.25rem solid black;
+    color: black;
+    cursor: pointer;
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    background-color: #F9A003;
+    border: 0.2rem solid black;
+    color: black;
+}
+
+.boton-terminar-semana-icono {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.boton-terminar-semana:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

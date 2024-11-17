@@ -113,7 +113,7 @@ body::before {
       opacity: 0.75;
   }
   50% {
-      transform: scale(1.1);
+      transform: scale(1.25);
       opacity: 1;
   }
   100% {
@@ -130,14 +130,17 @@ body::before {
 .destacado::before {
   content: '';
   position: absolute;
-  top: -35%;
-  left: -40%;
-  width: 175%;
-  height: 175%;
+  top: -12.5%;
+  left: -12.5%;
+  transform: translate(-70%, -50%);
+  width: 125%;
+  height: 125%;
+  box-sizing: border-box;
   
   border: 3px solid #573523;
   animation: pulsar 1.5s infinite;
   pointer-events: none;
+  
 }
 
 /* Configuraciones responsive */

@@ -4,7 +4,7 @@ const activosTutorial = [
         'descripcion' : 
             `El plazo fijo permite invertir un monto específico por un plazo a partir 
             de 30 días a cambio de un interés acordado previamente.`,
-        'cotizacion' : 20,
+        'cotizacion' : 1,
         'variacionNominal' : 'N/A',
         'variacionPorcentual' : '+2%',
         'caracteristicas' : {

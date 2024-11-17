@@ -3,13 +3,16 @@ import "./ValorInfo.css";
 import "../../Estilos/Comunes.css";
 import useExplicacionEnHover from '../../hooks/explicacionEnHover';
 
-const ValorInfo = ({ titulo, valor, explicacion, pequenio}) => {
+const ValorInfo = ({ titulo, valor, explicacion, pequenio, mostrar}) => {
 
     const { textoExplicacion, mostrarExplicacion, ocultarExplicacion } = useExplicacionEnHover();
 
 
     return (
-        <div className={`valor-info explicado-en-hover ${pequenio ? 'pequenio' : ''}`}>
+        <div
+            className={`valor-info explicado-en-hover ${pequenio ? 'pequenio' : ''}`}
+            style={{display: (mostrar) ? 'block' : 'none'}}
+            >
             <h3 className="valor-info-titulo poppins-bold">{titulo}</h3>
             <div className="valor-info-contenido"
                             onMouseEnter={() => mostrarExplicacion(explicacion)}

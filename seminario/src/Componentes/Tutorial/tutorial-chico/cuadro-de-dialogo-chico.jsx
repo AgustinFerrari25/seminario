@@ -5,7 +5,7 @@
 import React from 'react';
 import './cuadro-de-dialogo-chico.css';
 import '../../../Estilos/Comunes.css'
-import carpinchoCharacter from '../../../img/carpincho-traje.jpeg';
+import carpinchoCharacterSmall from '../../../img/carpincho-traje-pequenio.jpg'
 
 const CuadroDeDialogoChico = ({contenido}) => (
     <div className="wrapper-cuadro-de-dialogo-imagen-carpincho">
@@ -14,7 +14,7 @@ const CuadroDeDialogoChico = ({contenido}) => (
             <p className="poppins-light ">{contenido}</p>
         </div>
         <img 
-            src={carpinchoCharacter} 
+            src={carpinchoCharacterSmall} 
             alt="Carpincho character" 
             className="character-image-small" 
         />       

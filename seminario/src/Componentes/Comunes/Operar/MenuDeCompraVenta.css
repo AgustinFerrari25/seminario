@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 25rem;
+    min-width: 50vw;
     background-color: #ffcd75;
     border-radius: 2rem;
     border: 0.25rem solid black;
@@ -15,6 +16,7 @@
     align-items: stretch;
     justify-content: space-between;
     text-align: left;
+    font-size: 1.5rem;
 }
 
 .menu-de-compra-venta-overlay {
@@ -45,7 +47,7 @@
 }
 
 .menu-de-compra-venta-titulo {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
 }
 
@@ -57,12 +59,12 @@
 }
 
 .menu-de-compra-venta-subtotal{
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 .menu-de-compra-venta-indicador-de-cantidad {
     padding: 0.25rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
     width: 4rem;
     border-radius: 0.5rem;
     background-color: white;
@@ -101,7 +103,7 @@
 }
 
 .menu-de-compra-venta-confirmacion-de-operacion{
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     text-align: center;
     width: 100%;
     display: flex;

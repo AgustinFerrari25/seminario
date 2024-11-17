@@ -2,7 +2,7 @@ import React from 'react';
 import Plot from 'react-plotly.js';
 import './GraficoDeTenencias.css'
 
-const GraficoDeTenencias = ({ datos, mostrar }) => {
+const GraficoDeTenencias = ({ datos, mostrar, destacar }) => {
   const totalInvertido = Object.values(datos).reduce((acumulador, inversion) => {
     return acumulador + inversion.valorNominal;
     }, 0);
@@ -38,7 +38,7 @@ const GraficoDeTenencias = ({ datos, mostrar }) => {
 
   return (
     <div
-      className='grafico-de-tenencias-wrapper'
+      className={`grafico-de-tenencias-wrapper`}
       style={{visibility: (mostrar) ? 'visible' : 'hidden'}}
       >
       <h2>Distribución de tenencias</h2>

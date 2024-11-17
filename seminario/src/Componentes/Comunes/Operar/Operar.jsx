@@ -8,7 +8,6 @@ import Tenencias from './Tenencias';
 import Caracteristicas from "./Caracteristicas";
 import OperarBoton from "./OperarBoton";
 import MenuDeCompraVenta from "./MenuDeCompraVenta";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTags, faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
 const Operar = ({
@@ -30,7 +29,7 @@ const Operar = ({
     botonesOperarFuncionVender,
     
     menuCompraVentaFuncionConfirmar,
-    menuCompraVentaOperacion,
+    menuCompraVentaFuncionCancelar,
     
     activoMostrado,
     estadoDeCuenta,
@@ -58,6 +57,9 @@ const Operar = ({
         const funcionCancelarCompraVenta = () => {
             setOperacion('');
             setMostrarMenuCompraVenta(false);
+            if (typeof menuCompraVentaFuncionCancelar === 'function') {
+                menuCompraVentaFuncionCancelar();
+            }
         }
 
         return(
@@ -97,7 +99,7 @@ const Operar = ({
                 />
             </div>
             <div className="operar-columnas-lados" style={{visibility: (mostrarValorLiquido) ? 'visible' : 'hidden'}}>
-                <ValorInfo titulo={'Valor líquido'} valor={estadoDeCuenta['valorLiquido']} pequenio={true}/>
+                <ValorInfo titulo={'Valor líquido'} valor={estadoDeCuenta['valorLiquido']} mostrar={true} pequenio={true}/>
                 <Tenencias
                     tenencias={estadoDeCuenta['portfolio'][activoMostrado['nombre']]['tenencias']}
                     valorNominal={estadoDeCuenta['portfolio'][activoMostrado['nombre']]['valorNominal']}

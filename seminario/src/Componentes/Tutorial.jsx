@@ -6,6 +6,7 @@ import '../Estilos/Comunes.css'
 // Imports para las distintas secciones
 import Operar from './Comunes/Operar/Operar.jsx'
 import EstadoDeCuenta from './EstadoDeCuenta/EstadoDeCuenta.jsx'
+import FinalDeSemana from "./Comunes/FinalDeSemana/FinalDeSemana.jsx";
 
 // Imports para header
 import Header from "./Comunes/Header.jsx";
@@ -28,6 +29,8 @@ const Tutorial = () => {
     const [activoMostrado, setActivoMostrado] = useState(0);
     const [seccionMostrada, setSeccionMostrada] = useState('');
     const [estadoDeCuenta, setEstadoDeCuenta] = useState(estadoDeCuentaTutorial);
+    const [estadoDeCuentaNuevo, setEstadoDeCuentaNuevo] = useState(estadoDeCuentaTutorial);
+    const [etapaFinalDeSemana, setEtapaFinalDeSemana] = useState('cotizaciones');
     
     const manejarCambioDeActivo = (indice) => {
         if (indice === 0 && pasoDeTutorialActual === 16) {
@@ -81,7 +84,32 @@ const Tutorial = () => {
                 portfolio: nuevoPortfolio
             };
         });
+        if(pasoDeTutorialActual === 30){
+            manejarSiguiente();
+        }
     };
+
+    const manejarRecotizacionDeActivos = () => {
+        setEstadoDeCuentaNuevo(prevEstado => {
+            
+            const estadoDeCuentaAnterior = JSON.parse(JSON.stringify(estadoDeCuenta));
+
+            const nuevoPortfolio = { ...estadoDeCuentaAnterior.portfolio };
+
+            nuevoPortfolio['Plazo fijo']['valorNominal'] *= 1.2;
+
+            const nuevoValorNeto = Object.values(nuevoPortfolio).reduce((accumulator, item) => {
+                return accumulator + item.valorNominal; // Sum the valorNominal
+            }, 0);
+
+            // Devolver el estadoDeCuenta actualizado
+            return {
+                ...estadoDeCuentaAnterior,
+                valorNeto: nuevoValorNeto,
+                portfolio: nuevoPortfolio
+            };
+        });
+    }
 
     const manejarSiguiente = () => {
         if (pasoDeTutorialActual < textosTutorial.length - 1) {
@@ -92,7 +120,7 @@ const Tutorial = () => {
                 setModoTutorialChico(true);
             }
 
-            if (pasoDeTutorialActual >= 10) {
+            if (pasoDeTutorialActual === 10) {
                 setSeccionMostrada('estadoDeCuenta');
             }
 
@@ -100,10 +128,26 @@ const Tutorial = () => {
                 setMostrarOperar(true);
             }
 
-            if (pasoDeTutorialActual >= 14) {
+            if (pasoDeTutorialActual === 14) {
                 setSeccionMostrada('operar');
 
             }
+
+            if (pasoDeTutorialActual === 33) {
+                setSeccionMostrada('estadoDeCuenta');
+
+            }
+
+            if (pasoDeTutorialActual === 36) {
+                setSeccionMostrada('finalDeSemana');
+                manejarRecotizacionDeActivos();
+
+            }
+
+            if(pasoDeTutorialActual === 40) {
+                setEtapaFinalDeSemana('objetivo');
+            }
+
         }
     };
 
@@ -129,7 +173,8 @@ const Tutorial = () => {
                 mostrarOperar={mostrarOperar}
                 destacarOperar={pasoDeTutorialActual===14}
                 funcionOperar={pasoDeTutorialActual === 14 ? manejarSiguiente : manejarCambioDeSeccion}
-                funcionEstadoDeCuenta={manejarCambioDeSeccion}
+                funcionEstadoDeCuenta={pasoDeTutorialActual === 33 ? manejarSiguiente : manejarCambioDeSeccion}
+                destacarEstadoDeCuenta={pasoDeTutorialActual === 33}
                 />
             
 
@@ -147,9 +192,16 @@ const Tutorial = () => {
                     
                         <EstadoDeCuenta
                             estadoDeCuenta={estadoDeCuenta}
-                            mostrarValores={pasoDeTutorialActual>10}
-                            mostrarListadoDeActivos={pasoDeTutorialActual>21}
-                            mostrarGraficoDeTenencias={pasoDeTutorialActual>21}
+                            valorObjetivo={2000}
+                            mostrarValorNeto={pasoDeTutorialActual>10}
+                            mostrarValorLiquido={pasoDeTutorialActual>10}
+                            mostrarListadoDeActivos={pasoDeTutorialActual>34}
+                            mostrarGraficoDeTenencias={pasoDeTutorialActual>33}
+                            mostrarBotonTerminarSemana={pasoDeTutorialActual===36}
+                            destacarBotonTerminarSemana={pasoDeTutorialActual===36}
+                            mostrarValorObjetivo={pasoDeTutorialActual < 0}
+                            funcionTerminarSemana={manejarSiguiente}
+                            tituloListadoDeActivos={'Listado de activos'}
                         />
 
                     )}
@@ -173,7 +225,22 @@ const Tutorial = () => {
                         mostrarBotonesOperar={pasoDeTutorialActual > 22}
 
                         menuCompraVentaFuncionConfirmar={manejarCompraDeActivo}
+                        menuCompraVentaFuncionCancelar={pasoDeTutorialActual == 31 ? manejarSiguiente : null}
+                        botonesOperarFuncionComprar={pasoDeTutorialActual === 24 ? manejarSiguiente : null}
                     />
+                    )}
+
+                    {seccionMostrada === 'finalDeSemana' && (
+                        <FinalDeSemana
+                            estadoDeCuentaAnterior={estadoDeCuenta}
+                            mostrarEstadoDeCuentaActual={pasoDeTutorialActual > 37}
+                            mostrarEstadoDeCuentaNuevo={pasoDeTutorialActual > 38}
+                            mostrarPortfolioActual={pasoDeTutorialActual > 37}
+                            mostrarPortfolioNuevo={pasoDeTutorialActual > 38}
+                            estadoDeCuentaNuevo={estadoDeCuentaNuevo}
+                            valorObjetivo={1000}
+                            etapa={etapaFinalDeSemana}
+                        />
                     )}
 
                      {/* Contenido de Texto tutorial */}
@@ -183,9 +250,27 @@ const Tutorial = () => {
                         manejarAnterior={manejarAnterior}
                         manejarSiguiente={manejarSiguiente}
                         desactivarAnterior={pasoDeTutorialActual===0}
-                        desactivarSiguiente={(pasoDeTutorialActual === textosTutorial.length - 1 || pasoDeTutorialActual === 14 || pasoDeTutorialActual === 16)}
-                        abajo={pasoDeTutorialActual > 9 && pasoDeTutorialActual != 19 && pasoDeTutorialActual <= 22 }
-                        arriba={pasoDeTutorialActual === 19 || pasoDeTutorialActual > 22 }
+                        desactivarSiguiente={
+                            pasoDeTutorialActual === textosTutorial.length - 1 ||
+                            pasoDeTutorialActual === 14 ||
+                            pasoDeTutorialActual === 16 ||
+                            pasoDeTutorialActual === 24 ||
+                            pasoDeTutorialActual === 30 ||
+                            pasoDeTutorialActual === 31 ||
+                            pasoDeTutorialActual === 33 ||
+                            pasoDeTutorialActual === 36
+                        }
+                        abajo={
+                            pasoDeTutorialActual > 9 &&
+                            pasoDeTutorialActual != 19 &&
+                            pasoDeTutorialActual <= 22 ||
+                            pasoDeTutorialActual > 24
+                        }
+                        arriba={
+                            pasoDeTutorialActual === 19 ||
+                            pasoDeTutorialActual > 22 &&
+                            pasoDeTutorialActual < 25
+                        }
                         />
                     </>
                  
@@ -200,6 +285,10 @@ const Tutorial = () => {
                             desactivarAnterior={pasoDeTutorialActual===0}
                             desactivarSiguiente={pasoDeTutorialActual === textosTutorial.length - 1}
                         />
+
+                        {pasoDeTutorialActual === 37 && (
+                            <div style={{height: '150px'}}>Acompañamiento</div>
+                        )}
 
                     </>
                 )}

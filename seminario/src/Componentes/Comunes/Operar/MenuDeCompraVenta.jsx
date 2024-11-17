@@ -6,7 +6,7 @@ const MenuDeCompraVenta = ({
     cotizacion,
     valorLiquido,
     funcionCancelar,
-    funcionConfirmar
+    funcionConfirmar,
 }) => {
 
     const [cantidad, setCantidad] = useState(1);

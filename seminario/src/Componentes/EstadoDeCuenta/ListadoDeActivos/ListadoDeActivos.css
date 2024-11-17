@@ -1,7 +1,7 @@
 .listado-de-activos{
     overflow-y: scroll;
-    width: 20%;
-    height: 100%;
+    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: stretch;
