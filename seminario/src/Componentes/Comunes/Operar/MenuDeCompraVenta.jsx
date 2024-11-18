@@ -39,7 +39,7 @@ const MenuDeCompraVenta = ({
         }
 
         const nuevoSubtotal = cantidadNumerica * cotizacionNumerica;
-        const nuevoSaldoDespuesDeLaCompra = valorLiquido - nuevoSubtotal;
+        const nuevoSaldoDespuesDeLaCompra = operacion === 'Comprar' ? valorLiquido - nuevoSubtotal : valorLiquido + nuevoSubtotal;
 
         setSubtotal(nuevoSubtotal);
         setSaldoLuegoDeLaCompra(nuevoSaldoDespuesDeLaCompra);

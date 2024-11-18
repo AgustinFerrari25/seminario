@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 2.5rem;
 }
 
 .operar-columna-central {
@@ -23,18 +23,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: start;
-    gap: 1.25rem;
+    gap: 2rem;
 }
 
 .operar-nombre-del-activo {
     text-align: left;
-    font-size: 1.5rem;
-    margin-bottom: 1%;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .operar-descripcion-del-activo {
     text-align: justify;
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 .operar-botones-wrapper {

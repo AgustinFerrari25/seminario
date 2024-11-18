@@ -42,12 +42,17 @@ const GraficoDeTenencias = ({ datos, mostrar, destacar }) => {
       style={{visibility: (mostrar) ? 'visible' : 'hidden'}}
       >
       <h2>Distribución de tenencias</h2>
-      <Plot
-        data={[configuracionDelGrafico]}
-        layout={layout}
-        useResizeHandler={true}
-        style={{ width: '100%', height: '100%' }}
-      />
+      {totalInvertido > 0 ? (
+        <Plot
+          data={[configuracionDelGrafico]}
+          layout={layout}
+          useResizeHandler={true}
+          style={{ width: '100%', height: '100%' }}
+        />
+        ) : (
+          <h3 className='poppins-medium-italic'>Aún no existen inversiones.</h3>
+        )
+      }
     </div>
   );
 };

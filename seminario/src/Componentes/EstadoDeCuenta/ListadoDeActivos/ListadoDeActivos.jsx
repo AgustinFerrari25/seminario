@@ -22,16 +22,22 @@ const ListadoDeActivos = ({titulo, portfolio, mostrar, duracionDeAnimacion}) => 
 
                     />)
             ))}
-            <div className='listado-de-activos-total-invertido'>
-                <p className='poppins-bold listado-de-activos-total-etiqueta'>Total invertido:</p>
-                <p className='poppins-black listado-de-activos-total-valor'>
-                    $
-                    <NumeroAnimado
-                        valor={totalInvertido}
-                        mostrar={mostrar}
-                        duracionDeAnimacion={duracionDeAnimacion}/>
-                </p>
-            </div>
+            {totalInvertido > 0 ? 
+                (<div className='listado-de-activos-total-invertido'>
+                    <p className='poppins-bold listado-de-activos-total-etiqueta'>Total invertido:</p>
+                    <p className='poppins-black listado-de-activos-total-valor'>
+                        $
+                        <NumeroAnimado
+                            valor={totalInvertido}
+                            mostrar={mostrar}
+                            duracionDeAnimacion={duracionDeAnimacion}/>
+                    </p>
+                </div>
+                ) : (
+                    <div className='listado-de-activos-total-invertido'>
+                        <p className='poppins-medium-italic listado-de-activos-total-etiqueta'>Aún no existen inversiones.</p>
+                    </div>
+                )}
         </div>
     );
 }

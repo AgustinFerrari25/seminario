@@ -18,7 +18,7 @@ const Cotizacion = ({
                 <div className="cotizacion-separador">
                 </div>
                 <div className="cotizacion-columnas">
-                    <p className="cotizacion-valor poppins-light">{cotizacion}</p>
+                    <p className="cotizacion-valor poppins-light">${cotizacion.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p>
                     <p className="cotizacion-valor poppins-light">{variacionNominal}</p>
                     <p className="cotizacion-valor poppins-light">{variacionPorcentual}</p>
                 </div>

@@ -4,6 +4,7 @@
     flex-direction: column;
     align-content: stretch;
     justify-content: flex-start;
+    gap: 0.25rem;
 }
 
 .tenencias-columnas {
@@ -18,7 +19,7 @@
 .tenencias-etiqueta {
     width: 45%;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0;
 }
 
@@ -32,6 +33,6 @@
 .tenencias-valor {
     width: 45%;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0;
 }

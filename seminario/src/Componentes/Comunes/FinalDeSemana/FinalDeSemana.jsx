@@ -18,7 +18,10 @@ const FinalDeSemana = ({
     mostrarPortfolioActual,
     mostrarPortfolioNuevo,
     mostrarBotonesAnteriorSiguiente,
-    etapa
+    etapa,
+    noticias,
+    numeroDeSemana,
+    cantidadMaximaDeSemanas
     }) => {
 
         const variacionEnValorNeto = estadoDeCuentaNuevo['valorNeto'] - estadoDeCuentaAnterior['valorNeto'];
@@ -28,7 +31,7 @@ const FinalDeSemana = ({
             
             
             <div className="final-de-semana-wrapper">
-                <h2>¡Semana finalizada!</h2>
+                <h2 className="poppins-black">¡Semana finalizada!</h2>
 
                 {/* Cotizaciones */}
                 
@@ -127,6 +130,40 @@ const FinalDeSemana = ({
                     </div>
                 </div>
 
+                )}
+
+                {etapa === 'noticias' && (
+                
+                <>
+                    <h3 className="poppins-black">Últimas noticias</h3>
+                    
+                    <div className="final-de-semana-noticias">
+                    
+                        <div className="final-de-semana-noticia">
+                            <h4 className="poppins-bold">{noticias[0]['titulo']}</h4>
+                            <p>{noticias[0]['cuerpo']}</p>
+                        </div>
+
+                        <div className="final-de-semana-noticia">
+                        <h4 className="poppins-bold">{noticias[1]['titulo']}</h4>
+                        <p>{noticias[1]['cuerpo']}</p>
+                        </div>
+
+                        <div className="final-de-semana-noticia">
+                        <h4 className="poppins-bold">{noticias[2]['titulo']}</h4>
+                        <p>{noticias[2]['cuerpo']}</p>
+                        </div>
+
+                    </div>
+                </>
+
+                )}
+
+                {etapa === 'comienzoDeNuevaSemana' && (
+                        <p className='final-de-semana-texto-nueva-semana poppins-black'
+                            >
+                                {`Comenzando la semana número ${numeroDeSemana + 1} de ${cantidadMaximaDeSemanas}`}
+                        </p>
                 )}
 
                 <div className="final-de-semana-botones" style={{visibility: (mostrarBotonesAnteriorSiguiente) ? 'visible' : 'hidden'}}>

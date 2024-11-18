@@ -28,20 +28,28 @@ const Operar = ({
     botonesOperarFuncionComprar,
     destacarBotonesOperarComprar,
     desactivarBotonesOperarComprar,
+    desactivarBotonesOperarVender,
     botonesOperarFuncionVender,
     
-    menuCompraVentaFuncionConfirmar,
+    menuCompraVentaFuncionComprar,
+    menuCompraVentaFuncionVender,
     menuCompraVentaDesactivarConfirmar,
     menuCompraVentaFuncionCancelar,
     menuCompraVentaDesactivarCancelar,
     menuCompraVentaDestacarIndicadorDeCantidad,
     
+    activos,
     activoMostrado,
     estadoDeCuenta,
 
     }) => {
         const [mostrarMenuCompraVenta, setMostrarMenuCompraVenta] = useState(false);
         const [operacion, setOperacion] = useState('');
+
+        const listaDeActivos = activos.map(({ nombre, ticker }) => ({
+            nombre: ticker,
+            descripcion: nombre
+        }));
 
         const funcionComprar = () => {
             setOperacion('Comprar');
@@ -74,7 +82,7 @@ const Operar = ({
                     operacion={operacion}
                     funcionCancelar={funcionCancelarCompraVenta}
                     forzarDesactivarCancelar={menuCompraVentaDesactivarCancelar}
-                    funcionConfirmar={menuCompraVentaFuncionConfirmar}
+                    funcionConfirmar={operacion === 'Comprar' ? menuCompraVentaFuncionComprar : menuCompraVentaFuncionVender}
                     forzarDesactivarConfirmar={menuCompraVentaDesactivarConfirmar}
                     cotizacion={activoMostrado['cotizacion']}
                     valorLiquido={estadoDeCuenta['valorLiquido']}
@@ -87,6 +95,7 @@ const Operar = ({
                     condicionDestacar={menuActivosCondicionDestacar}
                     opcionADestacar={menuActivosOpcionADestacar}
                     funcionNavegacion={menuActivosFuncionNavegacion}
+                    activos={listaDeActivos}
                     />
             </div>
             <div className="operar-columna-central">
@@ -102,8 +111,7 @@ const Operar = ({
                     />
                 <GraficoTendencias
                     mostrar={mostrarGraficoTendencias}
-                    valorMaximo={35}
-                    valorMinimo={15}
+                    historialDeCotizaciones={activoMostrado['historial de cotizaciones'] ? activoMostrado['historial de cotizaciones'] : null}
                 />
             </div>
             <div className="operar-columnas-lados" style={{visibility: (mostrarValorLiquido) ? 'visible' : 'hidden'}}>
@@ -120,10 +128,10 @@ const Operar = ({
                 <div className="operar-botones-wrapper" style={{visibility: (mostrarBotonesOperar) ? 'visible' : 'hidden'}}>
                     <OperarBoton
                         icono={faTags}
-                        funcionOperar={botonesOperarFuncionVender}
+                        funcionOperar={funcionVender}
                         etiqueta={'Vender'}
                         invertido={true}
-                        desactivado={true}
+                        desactivado={desactivarBotonesOperarVender}
                         />
                     <OperarBoton
                         icono={faCartShopping}

@@ -1,0 +1,110 @@
+.inicio-de-semana-wrapper{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+}
+
+.inicio-de-semana-objetivo{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10%;
+}
+
+.inicio-de-semana-objetivo h3{
+    font-size: 1.5rem;
+}
+
+.inicio-de-semana-objetivo-valores{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.inicio-de-semana-objetivo-reglas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 2.5;
+}
+
+.inicio-de-semana-objetivo-reglas p{
+    font-size: 1.3rem;
+}
+
+.inicio-de-semana-objetivo-reglas ul{
+    font-size: 1rem;
+    text-align: center;
+    list-style: none;
+}
+
+.inicio-de-semana-noticias{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.inicio-de-semana-noticia{
+    height: 100%;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: justify;
+    border: 0.25rem solid #573523;
+    border-radius: 5%;
+    background-color: #ffcd75;
+    padding: 1.5rem 2rem;
+}
+
+.inicio-de-semana-noticia h3{
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+}
+
+.inicio-de-semana-noticia p{
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.inicio-de-semana-botones{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.inicio-de-semana-botones button{
+    padding: 15px 25px;
+    background-color: #ffb800;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.inicio-de-semana-botones button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.inicio-de-semana-botones button:hover:not(:disabled) {
+    background-color: #e0a800;
+}
+
+
+

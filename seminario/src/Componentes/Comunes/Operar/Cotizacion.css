@@ -4,6 +4,7 @@
     flex-direction: column;
     align-content: stretch;
     justify-content: flex-start;
+    gap: 0.5rem;
 }
 
 .cotizacion-columnas {
@@ -18,7 +19,7 @@
 .cotizacion-etiqueta {
     width: 30%;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 1.25rem;
     margin: 0;
 }
 
@@ -32,6 +33,6 @@
 .cotizacion-valor {
     width: 30%;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0;
 }

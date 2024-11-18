@@ -11,7 +11,8 @@ const activosTutorial = [
             'volatilidad' : 1,
             'potencialDeCrecimiento' : 2,
             'susceptibilidadAEventos' : 2
-        }
+        },
+        'ticker' : 'Plazo fijo'
     },
     {
         'nombre' : 'Bono',
@@ -26,7 +27,8 @@ const activosTutorial = [
             'volatilidad' : 2,
             'potencialDeCrecimiento' : 1,
             'susceptibilidadAEventos' : 2
-        }
+        },
+        'ticker' : 'Bono'
     },
     {
         'nombre' : 'Obligaciones Negociables',
@@ -40,7 +42,8 @@ const activosTutorial = [
             'volatilidad' : 1,
             'potencialDeCrecimiento' : 1,
             'susceptibilidadAEventos' : 3
-        }
+        },
+        'ticker' : 'Obligacione Negociables'
     }
 
 ]

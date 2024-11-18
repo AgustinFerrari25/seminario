@@ -8,6 +8,10 @@
     gap: 5%;
 }
 
+.final-de-semana-wrapper h2{
+    font-size: 2.5rem;
+}
+
 .final-de-semana-columnas{
     height: 100%;
     display: flex;
@@ -67,4 +71,42 @@
     align-items: center;
     justify-content: center;
     gap: 5%;
+}
+
+.final-de-semana-noticias{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.final-de-semana-noticia{
+    height: 100%;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: justify;
+    border: 0.25rem solid #573523;
+    border-radius: 5%;
+    background-color: #ffcd75;
+    padding: 1.5rem 2rem;
+}
+
+.final-de-semana-noticia h4{
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+}
+
+.final-de-semana-noticia p{
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.final-de-semana-texto-nueva-semana{
+    font-size: 2rem;
+    margin: auto 0;
 }

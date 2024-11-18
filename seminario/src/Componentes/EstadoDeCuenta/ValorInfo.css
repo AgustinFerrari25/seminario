@@ -38,15 +38,15 @@
 /* Versión chiquita de la cotización para la vista de operar */
 
 .valor-info.pequenio .valor-info-titulo {
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-align: left;
 }
 
 .valor-info.pequenio .simbolo-pesos {
-  width: 3.5rem;
+  width: 4.5rem;
 }
 
 .valor-info.pequenio .valor-info-valor {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
 }

@@ -234,15 +234,17 @@ const Tutorial = () => {
                         mostrarBotonesOperar={pasoDeTutorialActual > 22}
                         destacarBotonesOperarComprar={pasoDeTutorialActual === 24}
                         desactivarBotonesOperarComprar={pasoDeTutorialActual < 24}
+                        desactivarBotonesOperarVender={true}
                         
 
-                        menuCompraVentaFuncionConfirmar={manejarCompraDeActivo}
+                        menuCompraVentaFuncionComprar={manejarCompraDeActivo}
                         menuCompraVentaDesactivarConfirmar={pasoDeTutorialActual < 30}
                         menuCompraVentaFuncionCancelar={pasoDeTutorialActual === 31 ? manejarSiguiente : null}
                         menuCompraVentaDesactivarCancelar={pasoDeTutorialActual < 31}
                         menuCompraVentaDestacarIndicadorDeCantidad={pasoDeTutorialActual === 27}
 
                         botonesOperarFuncionComprar={pasoDeTutorialActual === 24 ? manejarSiguiente : null}
+                        activos={activosTutorial}
                     />
                     )}
 
@@ -254,7 +256,7 @@ const Tutorial = () => {
                             mostrarPortfolioActual={pasoDeTutorialActual > 37}
                             mostrarPortfolioNuevo={pasoDeTutorialActual > 38}
                             estadoDeCuentaNuevo={estadoDeCuentaNuevo}
-                            valorObjetivo={1500}
+                            valorObjetivo={1000}
                             etapa={etapaFinalDeSemana}
                         />
                     )}

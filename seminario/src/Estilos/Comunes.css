@@ -53,6 +53,7 @@ body::before {
 
 .play-area {
     flex: 1; /* Hace que ocupe todo el espacio que sobra */
+    max-height: 80vh;
     width: 90%;
     margin: 5vh auto;
     display: flex;
