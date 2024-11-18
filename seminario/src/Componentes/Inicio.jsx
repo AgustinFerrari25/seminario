@@ -1,41 +1,79 @@
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBook} from "@fortawesome/free-solid-svg-icons"
+/* CSS */
 import '../Estilos/EstilosInicio.css'
-import carpinchoLogo from '../img/carpincho-moneda.png';
-import { useNavigate} from "react-router-dom";
-import frameIcon from '../img/Frame.svg';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import '../Estilos/Comunes.css'
+
+/* Imagenes */
+import splashPrincipal from '../img/inicio-splash-principal.png';
+import splashLibreMercado from '../img/inicio-splash-libre-mercado.jpeg';
+import splashAprendizaje from '../img/inicio-splash-aprendizaje.jpeg';
+import splashBiblioteca from '../img/inicio-splash-biblioteca.jpeg';
+import isologo from '../img/isologo-vertical.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBook, faGraduationCap, faMoneyBillTrendUp} from "@fortawesome/free-solid-svg-icons"
 
 const Inicio=()=>{
+
+    const [imagenSplash, setImagenSplash] = useState(splashPrincipal);
+
+    const actualizarImagenSplash = (imagen) => {
+      setImagenSplash(imagen);
+    };
+
     const navigate = useNavigate();
+
     return(
-      <div className="home-container">
-        <div className="header-inicio">
-          <img src={carpinchoLogo} alt="Carpincho de Wall Street" className="logo" />
-          <h1 className="title-text">El Carpincho de Wall Street</h1>
+
+      <div className="wrapper-inicio">
+        
+        <div className="inicio-splash">
+          <img
+              src={imagenSplash}
+              alt="El Carpincho de Wall Street"
+          />
         </div>
-        <div className="button-container">
-          <button onClick={() => navigate('/aprendizaje')} className="btn">
-            <span className="btn-icon">
-              <FontAwesomeIcon icon={faGraduationCap}/>
-            </span>
-            <span className="btn-text oxanium-Modo">Modo Aprendizaje</span>
-          </button>
-          <button className="btn-disabled">
-            <span className="btn-icon">
-              <img src={frameIcon} alt="Mi icono" className="frame-icon"/>
-            </span>
-            <span className="btn-text oxanium-Modo">Modo Libre Mercado</span>
-          </button>
-          <button className="btn-disabled">
-            <span className="btn-icon">
-              <FontAwesomeIcon icon={faBook} />
-            </span>
-            <span className="btn-text oxanium-Modo">Biblioteca</span>
-          </button>
+
+        <div className="inicio-menu">
+          
+          <div className="inicio-wrapper-logo">
+            <img src={isologo} alt="Carpincho de Wall Street"/>
+          </div>
+
+          <div className="inicio-wrapper-botones">
+            
+            <button
+              onClick={() => navigate('/aprendizaje')}
+              onMouseEnter={() => actualizarImagenSplash(splashAprendizaje)} 
+              onMouseLeave={() => actualizarImagenSplash(splashPrincipal)}
+              >
+                <FontAwesomeIcon className="inicio-botones-iconos" icon={faGraduationCap}/>
+                <span className="poppins-black">Modo Aprendizaje</span>
+            </button>
+
+            <button
+              onMouseEnter={() => actualizarImagenSplash(splashLibreMercado)} 
+              onMouseLeave={() => actualizarImagenSplash(splashPrincipal)}
+              className="inicio-botones-desactivados"
+              >
+                <FontAwesomeIcon className="inicio-botones-iconos" icon={faMoneyBillTrendUp}/>
+              <span className="poppins-black">Modo Libre Mercado</span>
+            </button>
+
+            <button
+              onMouseEnter={() => actualizarImagenSplash(splashBiblioteca)} 
+              onMouseLeave={() => actualizarImagenSplash(splashPrincipal)}
+              className="inicio-botones-desactivados"
+              >
+                <FontAwesomeIcon className="inicio-botones-iconos" icon={faBook} />
+                <span className="poppins-black">Biblioteca</span>
+            </button>
+
+          </div>
+        
         </div>
+
       </div>
     ) 
 }
