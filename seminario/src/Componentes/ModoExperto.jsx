@@ -122,12 +122,13 @@ const ModoExperto = () => {
         });
     };
 
-    const manejarRecotizacionDeActivos = () => {
+    const manejarRecotizacionDeActivos = (nuevoNumeroDeSemana) => {
         setEstadoDeCuentaNuevo(prevEstado => {
             
             const estadoDeCuentaAnterior = JSON.parse(JSON.stringify(estadoDeCuenta));
 
             const nuevoPortfolio = { ...estadoDeCuentaAnterior.portfolio };
+            console.log(`numeroDeSemanaAjustado es ${nuevoNumeroDeSemana}`);
 
             switch(numeroDeSemana){
                 case 0:
@@ -136,11 +137,13 @@ const ModoExperto = () => {
                     nuevoPortfolio['Meta Platforms Inc. (Facebook)']['valorNominal'] *= 1.2;
                     nuevoPortfolio['NVIDIA Corporation']['valorNominal'] *= 1.05;
                     nuevoPortfolio['Coca-Cola Company']['valorNominal'] *= 0.7;
+                    break;
                 case 1:
                     nuevoPortfolio['Apple Inc.']['valorNominal'] *= 0.8365;
                     nuevoPortfolio['Tesla Inc.']['valorNominal'] *= 1.0935;
                     nuevoPortfolio['NVIDIA Corporation']['valorNominal'] *= 1.0423;
                     nuevoPortfolio['Coca-Cola Company']['valorNominal'] *= 1.0212;
+                    break;
             }
             
             const nuevoValorNeto = Object.values(nuevoPortfolio).reduce((accumulator, item) => {
@@ -181,10 +184,10 @@ const ModoExperto = () => {
     };
 
     const terminarSemana = () => {
-        manejarRecotizacionDeActivos();
-        setSeccionMostrada('finalDeSemana');
+        manejarRecotizacionDeActivos(numeroDeSemana);
         const nuevoNumeroDeSemana = numeroDeSemana + 1;
         setNumeroDeSemana(nuevoNumeroDeSemana);
+        setSeccionMostrada('finalDeSemana');
     }
 
     const manejarAvanzarEtapaFinalDeSemana = () => {
